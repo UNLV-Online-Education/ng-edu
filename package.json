@@ -1,0 +1,44 @@
+{
+  "name": "ng2-edu",
+  "version": "0.0.1",
+  "description": "A library of Angular 2 components for use in online education applications/interactives/digital learning objects.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UNLV-Online-Education/ng2-edu"
+  },
+  "main": "index.js",
+  "scripts": {
+    "typings-install": "typings install",
+    "postinstall": "npm run typings-install",
+    "prepublish": "tsc"
+  },
+  "keywords": [
+    "UNLV",
+    "online",
+    "education",
+    "learning",
+    "angular2"
+  ],
+  "author": "John Murphy",
+  "license": "MIT",
+  "dependencies": {
+    "@angular/common": "2.0.0-rc.4",
+    "@angular/compiler": "2.0.0-rc.4",
+    "@angular/core": "2.0.0-rc.4",
+    "@angular/forms": "0.2.0",
+    "@angular/http": "2.0.0-rc.4",
+    "@angular/platform-browser": "2.0.0-rc.4",
+    "@angular/platform-browser-dynamic": "2.0.0-rc.4",
+    "@angular/router": "3.0.0-beta.2",
+    "es6-shim": "^0.35.1",
+    "reflect-metadata": "0.1.3",
+    "rxjs": "5.0.0-beta.6",
+    "systemjs": "0.19.26",
+    "zone.js": "^0.6.12"
+  },
+  "devDependencies": {
+    "typescript": "^1.8.10",
+    "typings": "^1.3.2"
+  },
+  "typings": "./index.d.ts"
+}

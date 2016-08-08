@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "removeComments": true,
+        "noImplicitAny": false,
+        "module": "commonjs",
+        "target": "es5",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "sourceMap": true,
+        "declaration": true,
+        "moduleResolution": "node",
+        "rootDir": "."
+    },
+    "files": [
+      "typings/index.d.ts",
+      "index.ts"
+    ],
+    "compileOnSave": false,
+    "buildOnSave": false,
+    "exclude": [
+        "node_modules",
+        "typings/main",
+        "typings/main.d.ts"
+    ]
+}
