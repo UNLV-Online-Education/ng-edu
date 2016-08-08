@@ -9,7 +9,7 @@ import {
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { UnlvOePoiModalComponent } from './unlv-oe-poi-modal.component';
+import { UnlvOePoiModalComponent } from './points-of-interest.ts';
 
 describe('Component: UnlvOePoi', () => {
   let builder: TestComponentBuilder;
@@ -37,7 +37,7 @@ describe('Component: UnlvOePoi', () => {
 @Component({
   selector: 'test',
   template: `
-    <app-unlv-oe-poi-modal></app-unlv-oe-poi-modal>
+    <unlv-oe-poi-modal></unlv-oe-poi-modal>
   `,
   directives: [UnlvOePoiModalComponent]
 })
