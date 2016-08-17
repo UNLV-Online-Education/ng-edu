@@ -36,7 +36,7 @@ import { Router } from '@angular/router';
     }
     div.poi-modal-outer {
     	width: 85%;
-    	min-height: 33%;
+    	min-height: 50%;
     	max-height: 85%;
     	max-width: 80rem;
     	position: absolute;
