@@ -9,25 +9,25 @@ import {
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { UnlvOePoiComponent } from './points-of-interest.ts';
+import { Poi } from './points-of-interest.ts';
 
-describe('Component: UnlvOePoi', () => {
+describe('Component: Poi', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [UnlvOePoiComponent]);
+  beforeEachProviders(() => [Poi]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
 
-  it('should inject the component', inject([UnlvOePoiComponent],
-      (component: UnlvOePoiComponent) => {
+  it('should inject the component', inject([Poi],
+      (component: Poi) => {
     expect(component).toBeTruthy();
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(UnlvOePoiComponentTestController)
+    return builder.createAsync(PoiTestController)
       .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(UnlvOePoiComponent));
+        let query = fixture.debugElement.query(By.directive(Poi));
         expect(query).toBeTruthy();
         expect(query.componentInstance).toBeTruthy();
       });
@@ -37,9 +37,9 @@ describe('Component: UnlvOePoi', () => {
 @Component({
   selector: 'test',
   template: `
-    <unlv-oe-poi></unlv-oe-poi>
+    <oe-poi></oe-poi>
   `,
   directives: [UnlvOePoiComponent]
 })
-class UnlvOePoiComponentTestController {
+class PoiTestController {
 }

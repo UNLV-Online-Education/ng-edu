@@ -44,7 +44,7 @@ import { Component, OnInit, Input } from '@angular/core';
     }
   `]
 })
-export class LayerToggleControlsComponent implements OnInit {
+export class LayerToggleControls implements OnInit {
 
   @Input() data: any;
 
@@ -101,7 +101,7 @@ export class LayerToggleControlsComponent implements OnInit {
     }
   `]
 })
-export class LayerToggleDisplayComponent implements OnInit {
+export class LayerToggleDisplay implements OnInit {
 
   @Input() data: any;
 

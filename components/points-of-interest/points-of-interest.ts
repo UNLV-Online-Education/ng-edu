@@ -1,10 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
-// import { UnlvOePoiModalComponent } from './unlv-oe-poi-modal.component';
-
 @Component({
-  selector: 'unlv-oe-poi-modal',
+  selector: 'oe-poi-modal',
   template: `
     <div class="poi-modal-overlay" (click)="closeModal()"></div>
     <div class="poi-modal-outer">
@@ -91,7 +89,7 @@ import { Router } from '@angular/router';
     			}
   `]
 })
-export class UnlvOePoiModal implements OnInit {
+export class PoiModal implements OnInit {
 
   @Input() modalData: any;
 
@@ -115,7 +113,7 @@ export class UnlvOePoiModal implements OnInit {
 }
 
 @Component({
-  selector: 'unlv-oe-poi',
+  selector: 'oe-poi',
   template: `
   <section class="poi-row">
     <div class="poi-wrapper">
@@ -125,7 +123,7 @@ export class UnlvOePoiModal implements OnInit {
         <button></button>
         <span class="label" *ngIf="point.label">{{point.label}}</span>
       </div>
-      <unlv-oe-poi-modal *ngIf="poiModal" [modalData]="poiModalData" (modalChange)="modalChange($event);"></unlv-oe-poi-modal>
+      <oe-poi-modal *ngIf="poiModal" [modalData]="poiModalData" (modalChange)="modalChange($event);"></oe-poi-modal>
     </div>
   </section>
   `,
@@ -266,7 +264,7 @@ export class UnlvOePoiModal implements OnInit {
         div.point button:focus + span.label {
         	display: block;
         }
-    unlv-oe-poi-modal {
+    oe-poi-modal {
       position: absolute;
       top: 0;
       right: 0;
@@ -276,10 +274,10 @@ export class UnlvOePoiModal implements OnInit {
     }
   `],
   directives: [
-    UnlvOePoiModal
+    PoiModal
   ]
 })
-export class UnlvOePoi implements OnInit {
+export class Poi implements OnInit {
 
   @Input() data: any;
 
