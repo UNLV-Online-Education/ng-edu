@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { NgModule, Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
@@ -315,3 +316,10 @@ export class Poi implements OnInit {
   }
 
 }
+
+@NgModule({
+    imports: [CommonModule],
+    exports: [Poi],
+    declarations: [Poi]
+})
+export class PoiModule { }

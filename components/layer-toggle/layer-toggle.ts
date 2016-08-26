@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { NgModule, Component, OnInit, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'oe-layer-toggle-controls',
@@ -16,7 +17,6 @@ import { Component, OnInit, Input } from '@angular/core';
   `,
   styles: [`
     .oe-layer-toggle-controls {
-      padding: 0 1rem 1rem;
       height: 100%;
     }
     .oe-layer-toggle-controls:after {
@@ -111,3 +111,10 @@ export class LayerToggleDisplay implements OnInit {
   }
 
 }
+
+@NgModule({
+    imports: [CommonModule],
+    exports: [LayerToggleControls, LayerToggleDisplay],
+    declarations: [LayerToggleControls, LayerToggleDisplay]
+})
+export class LayerToggleModule { }

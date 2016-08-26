@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { NgClass } from '@angular/common';
+import { NgModule, Component, OnInit, Input } from '@angular/core';
+import { CommonModule, NgClass } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'question-options',
@@ -197,3 +198,10 @@ export class Quiz implements OnInit {
   }
 
 }
+
+@NgModule({
+    imports: [CommonModule, FormsModule],
+    exports: [Quiz],
+    declarations: [Quiz]
+})
+export class QuizModule { }
