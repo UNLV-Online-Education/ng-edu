@@ -62,10 +62,6 @@ export class QuizQuestionOptions implements OnInit {
 @Component({
   selector: 'oe-quiz',
   styles: [`
-    .pure-button {
-    	background-color: #2196F3;
-    	color: #fff;
-    }
     span.correct {
     	color: #4CAF50;
     }
