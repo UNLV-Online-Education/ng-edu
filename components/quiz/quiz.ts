@@ -1,5 +1,5 @@
 import { NgModule, Component, OnInit, Input } from '@angular/core';
-import { CommonModule, NgClass } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -19,8 +19,8 @@ import { FormsModule } from '@angular/forms';
   template: `
     <ul>
       <li *ngFor="let option of data.answerChoices; let o = index">
-        <input *ngIf="data.type === 'radio'" [id]="index + '-' + o.toString()" [attr.name]="index" type="radio" [(ngModel)]="data.input" [value]="option" [disabled]="data.submitted" required>
-        <input *ngIf="data.type === 'checkbox'" [id]="index + '-' + o.toString()" [attr.name]="index + '-' + o.toString()" type="checkbox" [(ngModel)]="data.input[o]" [value]="option" [disabled]="data.submitted">
+        <input *ngIf="data.type === 'radio'" [id]="index + '-' + o.toString()" [name]="index" type="radio" [(ngModel)]="data.input" [value]="option" [disabled]="data.submitted" required>
+        <input *ngIf="data.type === 'checkbox'" [id]="index + '-' + o.toString()" [name]="index + '-' + o.toString()" type="checkbox" [(ngModel)]="data.input[o]" [value]="option" [disabled]="data.submitted">
         <label [ngClass]="{'answer': isAnswer(option, data.answer, data.submitted)}" [attr.for]="index + '-' + o.toString()">{{option}}</label>
       </li>
     </ul>
@@ -134,11 +134,7 @@ export class QuizQuestionOptions implements OnInit {
     <p *ngIf="data.inputDisabled">
       {{data.feedback}} You got {{data.numberCorrect}} correct.
     </p>
-  `,
-  directives: [
-    NgClass,
-    QuizQuestionOptions
-  ]
+  `
 })
 export class Quiz implements OnInit {
 
@@ -198,6 +194,6 @@ export class Quiz implements OnInit {
 @NgModule({
     imports: [CommonModule, FormsModule],
     exports: [Quiz],
-    declarations: [Quiz]
+    declarations: [Quiz, QuizQuestionOptions]
 })
 export class QuizModule { }

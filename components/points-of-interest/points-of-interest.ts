@@ -273,10 +273,7 @@ export class PoiModal implements OnInit {
       left: 0;
       z-index: 999;
     }
-  `],
-  directives: [
-    PoiModal
-  ]
+  `]
 })
 export class Poi implements OnInit {
 
@@ -320,6 +317,6 @@ export class Poi implements OnInit {
 @NgModule({
     imports: [CommonModule],
     exports: [Poi],
-    declarations: [Poi]
+    declarations: [Poi, PoiModal]
 })
 export class PoiModule { }
