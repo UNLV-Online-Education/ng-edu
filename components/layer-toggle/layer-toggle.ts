@@ -53,7 +53,7 @@ export class LayerToggleControls implements OnInit {
   ngOnInit() {
   }
 
-  activate(layer: any) {
+  activate(layer:any) {
     for (let i = 0; i < this.data.layers.length; i++) {
       let dataLayer = this.data.layers[i];
       if (!this.data.cumulative) {

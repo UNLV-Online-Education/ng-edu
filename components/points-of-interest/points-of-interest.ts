@@ -291,7 +291,7 @@ export class Poi implements OnInit {
     this.poiData = this.data;
   }
 
-  modalChange(event) {
+  modalChange(event:any) {
     this.poiModal = event.value;
   }
 
@@ -299,7 +299,7 @@ export class Poi implements OnInit {
 
   poiModalData: any;
 
-  pointClick(data, index) {
+  pointClick(data:any, index:any) {
     this.poiModal = false;
     if (data.route) {
       this.router.navigate([data.route]);

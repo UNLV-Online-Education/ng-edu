@@ -37,14 +37,14 @@ export class QuizQuestionOptions implements OnInit {
   ngOnInit() {
   }
 
-  isAnswer(option, answers, questionSubmitted) {
+  isAnswer(option:any, answers:any, questionSubmitted:any) {
     return this.markIfAnswer(option, answers, questionSubmitted);
   }
 
-  markIfAnswer(option, answers, questionSubmitted) {
+  markIfAnswer(option:any, answers:any, questionSubmitted:any) {
     if (questionSubmitted) {
       var optionIsAnswer = false;
-      answers.forEach(function(answer) {
+      answers.forEach(function(answer:any) {
         if (option === answer) {
           optionIsAnswer = true;
         }
@@ -53,7 +53,7 @@ export class QuizQuestionOptions implements OnInit {
     }
   }
 
-  toggleCheck(option) {
+  toggleCheck(option:any) {
     console.log(option);
   }
 
@@ -147,8 +147,8 @@ export class Quiz implements OnInit {
 
   submitQuiz() {
     let quizData = this.data;
-    quizData.sets.forEach(function(set) {
-      set.questions.forEach(function(question) {
+    quizData.sets.forEach(function(set:any) {
+      set.questions.forEach(function(question:any) {
         question.submitted = true;
         if (question.type === 'checkbox') {
           let checkboxCorrect:number = 0;
