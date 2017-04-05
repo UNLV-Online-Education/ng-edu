@@ -262,7 +262,8 @@ export class PoiModal implements OnInit {
         	transform: translate(-50%, 100%);
         }
         div.point button:hover + span.label,
-        div.point button:focus + span.label {
+        div.point button:focus + span.label,
+        div.point button + span.label:hover {
         	display: block;
         }
     oe-poi-modal {

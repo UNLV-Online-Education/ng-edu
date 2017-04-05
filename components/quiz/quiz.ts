@@ -9,6 +9,18 @@ import { FormsModule } from '@angular/forms';
       list-style-type: none;
       padding-left: 0;
     }
+    ul li {
+      margin-bottom: .5rem;
+    }
+    ul li input {
+      float: left;
+      margin: .375rem .25rem 0 0;
+    }
+    ul li label {
+      margin: 0;
+      display: block;
+      overflow: hidden;
+    }
     input:checked + label {
       font-weight: bold;
     }
