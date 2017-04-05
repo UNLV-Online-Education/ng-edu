@@ -908,7 +908,7 @@ class View_QuizQuestionOptions_Host0 extends import10.AppView<any> {
   }
 }
 export const QuizQuestionOptionsNgFactory:import16.ComponentFactory<import1.QuizQuestionOptions> = new import16.ComponentFactory<import1.QuizQuestionOptions>('question-options',View_QuizQuestionOptions_Host0,import1.QuizQuestionOptions);
-const styles_QuizQuestionOptions:any[] = ['ul[_ngcontent-%COMP%] {\n      list-style-type: none;\n      padding-left: 0;\n    }\n    input[_ngcontent-%COMP%]:checked    + label[_ngcontent-%COMP%] {\n      font-weight: bold;\n    }\n    .question.submitted[_nghost-%COMP%]   label.answer[_ngcontent-%COMP%], .question.submitted   [_nghost-%COMP%]   label.answer[_ngcontent-%COMP%] {\n      font-style: italic;\n    }'];
+const styles_QuizQuestionOptions:any[] = ['ul[_ngcontent-%COMP%] {\n      list-style-type: none;\n      padding-left: 0;\n    }\n    ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n      margin-bottom: .5rem;\n    }\n    ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n      float: left;\n      margin: .375rem .25rem 0 0;\n    }\n    ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n      margin: 0;\n      display: block;\n      overflow: hidden;\n    }\n    input[_ngcontent-%COMP%]:checked    + label[_ngcontent-%COMP%] {\n      font-weight: bold;\n    }\n    .question.submitted[_nghost-%COMP%]   label.answer[_ngcontent-%COMP%], .question.submitted   [_nghost-%COMP%]   label.answer[_ngcontent-%COMP%] {\n      font-style: italic;\n    }'];
 class View_QuizQuestionOptions2 extends import10.AppView<any> {
   _el_0:any;
   _DefaultValueAccessor_0_3:import33.Wrapper_DefaultValueAccessor;
