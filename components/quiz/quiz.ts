@@ -26,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     }
     :host-context(.question.submitted) label.answer {
       font-style: italic;
+      color: #4CAF50;
     }
   `],
   template: `
@@ -124,8 +125,8 @@ export class QuizQuestionOptions implements OnInit {
         <div class="question" [ngClass]="{'submitted': question.submitted}" *ngFor="let question of set.questions; let q = index;">
           <p class="q-counter">
             <span class="q-grade" *ngIf="question.submitted">
-              <span class="glyph correct animated tada" *ngIf="question.correct">&#xf00c;</span>
-              <span class="glyph incorrect animated wobble" *ngIf="!question.correct">&#xf00d;</span>
+              <span class="fa fa-check correct animated tada" *ngIf="question.correct"></span>
+              <span class="fa fa-close incorrect animated wobble" *ngIf="!question.correct"></span>
             </span>
             <span>{{q + 1}}.</span>
           </p>

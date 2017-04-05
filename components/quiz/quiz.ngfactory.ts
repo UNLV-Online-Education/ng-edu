@@ -206,18 +206,12 @@ export const QuizNgFactory:import16.ComponentFactory<import1.Quiz> = new import1
 const styles_Quiz:any[] = ['span.correct[_ngcontent-%COMP%] {\n    	color: #4CAF50;\n    }\n    span.incorrect[_ngcontent-%COMP%] {\n    	color: #F44336;\n    }\n    .pure-form[_ngcontent-%COMP%]   fieldset[_ngcontent-%COMP%] {\n    	border: 0;\n    	padding: 0;\n    }\n    fieldset[_ngcontent-%COMP%]   p[_ngcontent-%COMP%], fieldset[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%] {\n    	max-width: 48rem;\n    }\n      fieldset[_ngcontent-%COMP%]   legend[_ngcontent-%COMP%] {\n        margin-bottom: 1rem;\n        font-weight: bold;\n      }\n    		fieldset[_ngcontent-%COMP%]   div.question[_ngcontent-%COMP%]   p.q-counter[_ngcontent-%COMP%] {\n    			float: left;\n    			width: 3.25rem;\n    			padding-left: 1.25rem;\n    		}\n    	fieldset[_ngcontent-%COMP%]   div.question[_ngcontent-%COMP%]   div.q-body[_ngcontent-%COMP%] {\n    			display: block;\n    			overflow: hidden;\n    		}\n    		fieldset[_ngcontent-%COMP%]   div.question.submitted[_ngcontent-%COMP%]   p.q-counter[_ngcontent-%COMP%] {\n    			padding-left: 0;\n    		}\n    			form.quiz[_ngcontent-%COMP%]   fieldset[_ngcontent-%COMP%]   div.question[_ngcontent-%COMP%]   p.q-counter[_ngcontent-%COMP%]   span.q-grade[_ngcontent-%COMP%] {\n    				float: left;\n    				width: 1rem;\n    				margin-right: .25rem;\n    			}\n    			form.quiz[_ngcontent-%COMP%]   fieldset[_ngcontent-%COMP%]   div.question[_ngcontent-%COMP%]   p.q-counter[_ngcontent-%COMP%], form.quiz[_ngcontent-%COMP%]   fieldset[_ngcontent-%COMP%]   div.question[_ngcontent-%COMP%]   p.q-intro[_ngcontent-%COMP%] {\n    				margin-top: 0;\n    			}\n    			form.quiz[_ngcontent-%COMP%]   div.question[_ngcontent-%COMP%]   p.feedback[_ngcontent-%COMP%] {\n    				margin-top: 0;\n    			}'];
 class View_Quiz4 extends import10.AppView<any> {
   _el_0:any;
-  _text_1:any;
   constructor(viewUtils:import11.ViewUtils,parentView:import10.AppView<any>,parentIndex:number,parentElement:any,declaredViewContainer:import17.ViewContainer) {
     super(View_Quiz4,renderType_Quiz,import14.ViewType.EMBEDDED,viewUtils,parentView,parentIndex,parentElement,import15.ChangeDetectorStatus.CheckAlways,declaredViewContainer);
   }
   createInternal(rootSelector:string):import16.ComponentRef<any> {
-    this._el_0 = import11.createRenderElement(this.renderer,(null as any),'span',new import11.InlineArray2(2,'class','glyph correct animated tada'),(null as any));
-    this._text_1 = this.renderer.createText(this._el_0,'',(null as any));
-    this.init(this._el_0,((<any>this.renderer).directRenderer? (null as any): [
-      this._el_0,
-      this._text_1
-    ]
-    ),(null as any));
+    this._el_0 = import11.createRenderElement(this.renderer,(null as any),'span',new import11.InlineArray2(2,'class','fa fa-check correct animated tada'),(null as any));
+    this.init(this._el_0,((<any>this.renderer).directRenderer? (null as any): [this._el_0]),(null as any));
     return (null as any);
   }
   visitRootNodesInternal(cb:any,ctx:any):void {
@@ -226,18 +220,12 @@ class View_Quiz4 extends import10.AppView<any> {
 }
 class View_Quiz5 extends import10.AppView<any> {
   _el_0:any;
-  _text_1:any;
   constructor(viewUtils:import11.ViewUtils,parentView:import10.AppView<any>,parentIndex:number,parentElement:any,declaredViewContainer:import17.ViewContainer) {
     super(View_Quiz5,renderType_Quiz,import14.ViewType.EMBEDDED,viewUtils,parentView,parentIndex,parentElement,import15.ChangeDetectorStatus.CheckAlways,declaredViewContainer);
   }
   createInternal(rootSelector:string):import16.ComponentRef<any> {
-    this._el_0 = import11.createRenderElement(this.renderer,(null as any),'span',new import11.InlineArray2(2,'class','glyph incorrect animated wobble'),(null as any));
-    this._text_1 = this.renderer.createText(this._el_0,'',(null as any));
-    this.init(this._el_0,((<any>this.renderer).directRenderer? (null as any): [
-      this._el_0,
-      this._text_1
-    ]
-    ),(null as any));
+    this._el_0 = import11.createRenderElement(this.renderer,(null as any),'span',new import11.InlineArray2(2,'class','fa fa-close incorrect animated wobble'),(null as any));
+    this.init(this._el_0,((<any>this.renderer).directRenderer? (null as any): [this._el_0]),(null as any));
     return (null as any);
   }
   visitRootNodesInternal(cb:any,ctx:any):void {
@@ -908,7 +896,7 @@ class View_QuizQuestionOptions_Host0 extends import10.AppView<any> {
   }
 }
 export const QuizQuestionOptionsNgFactory:import16.ComponentFactory<import1.QuizQuestionOptions> = new import16.ComponentFactory<import1.QuizQuestionOptions>('question-options',View_QuizQuestionOptions_Host0,import1.QuizQuestionOptions);
-const styles_QuizQuestionOptions:any[] = ['ul[_ngcontent-%COMP%] {\n      list-style-type: none;\n      padding-left: 0;\n    }\n    ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n      margin-bottom: .5rem;\n    }\n    ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n      float: left;\n      margin: .375rem .25rem 0 0;\n    }\n    ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n      margin: 0;\n      display: block;\n      overflow: hidden;\n    }\n    input[_ngcontent-%COMP%]:checked    + label[_ngcontent-%COMP%] {\n      font-weight: bold;\n    }\n    .question.submitted[_nghost-%COMP%]   label.answer[_ngcontent-%COMP%], .question.submitted   [_nghost-%COMP%]   label.answer[_ngcontent-%COMP%] {\n      font-style: italic;\n    }'];
+const styles_QuizQuestionOptions:any[] = ['ul[_ngcontent-%COMP%] {\n      list-style-type: none;\n      padding-left: 0;\n    }\n    ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n      margin-bottom: .5rem;\n    }\n    ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n      float: left;\n      margin: .375rem .25rem 0 0;\n    }\n    ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n      margin: 0;\n      display: block;\n      overflow: hidden;\n    }\n    input[_ngcontent-%COMP%]:checked    + label[_ngcontent-%COMP%] {\n      font-weight: bold;\n    }\n    .question.submitted[_nghost-%COMP%]   label.answer[_ngcontent-%COMP%], .question.submitted   [_nghost-%COMP%]   label.answer[_ngcontent-%COMP%] {\n      font-style: italic;\n      color: #4CAF50;\n    }'];
 class View_QuizQuestionOptions2 extends import10.AppView<any> {
   _el_0:any;
   _DefaultValueAccessor_0_3:import33.Wrapper_DefaultValueAccessor;
