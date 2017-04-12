@@ -280,9 +280,9 @@ export class Poi implements OnInit {
 
   @Input() data: any;
 
-  private sub: any;
+  public sub: any;
 
-  private poiData: any;
+  public poiData: any;
 
   constructor(
     public router: Router
