@@ -1,6 +1,6 @@
 {
   "name": "build-ng2-edu",
-  "version": "0.4.6",
+  "version": "0.5.1",
   "description": "A library of Angular 2 components for use in online education applications/interactives/digital learning objects.",
   "repository": {
     "type": "git",
