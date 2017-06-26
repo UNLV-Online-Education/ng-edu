@@ -93,6 +93,7 @@ export class Wrapper_Quiz {
   context:import1.Quiz;
   /*private*/ _changed:boolean;
   /*private*/ _expr_0:any;
+  subscription0:any;
   constructor() {
     this._changed = false;
     this.context = new import1.Quiz();
@@ -101,6 +102,7 @@ export class Wrapper_Quiz {
   ngOnDetach(view:import10.AppView<any>,componentView:import10.AppView<any>,el:any):void {
   }
   ngOnDestroy():void {
+    (this.subscription0 && this.subscription0.unsubscribe());
   }
   check_data(currValue:any,throwOnChange:boolean,forceUpdate:boolean):void {
     if ((forceUpdate || import11.checkBinding(throwOnChange,this._expr_0,currValue))) {
@@ -121,8 +123,9 @@ export class Wrapper_Quiz {
     var result:boolean = true;
     return result;
   }
-  subscribe(view:import10.AppView<any>,_eventHandler:any):void {
+  subscribe(view:import10.AppView<any>,_eventHandler:any,emit0:boolean):void {
     this._eventHandler = _eventHandler;
+    if (emit0) { (this.subscription0 = this.context.completed.subscribe(_eventHandler.bind(view,'completed'))); }
   }
 }
 export class Wrapper_QuizQuestionOptions {
@@ -197,6 +200,7 @@ class View_Quiz_Host0 extends import10.AppView<any> {
   }
   destroyInternal():void {
     this.compView_0.destroy();
+    this._Quiz_0_3.ngOnDestroy();
   }
   visitRootNodesInternal(cb:any,ctx:any):void {
     cb(this._el_0,ctx);

@@ -1,4 +1,4 @@
-import { NgModule, Component, OnInit, Input } from '@angular/core';
+import { NgModule, Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -50,24 +50,20 @@ export class QuizQuestionOptions implements OnInit {
   ngOnInit() {
   }
 
-  isAnswer(option:any, answers:any, questionSubmitted:any) {
+  isAnswer(option: any, answers: any, questionSubmitted: any) {
     return this.markIfAnswer(option, answers, questionSubmitted);
   }
 
-  markIfAnswer(option:any, answers:any, questionSubmitted:any) {
+  markIfAnswer(option: any, answers: any, questionSubmitted: any) {
     if (questionSubmitted) {
       var optionIsAnswer = false;
-      answers.forEach(function(answer:any) {
+      answers.forEach(function(answer: any) {
         if (option === answer) {
           optionIsAnswer = true;
         }
       });
       return optionIsAnswer;
     }
-  }
-
-  toggleCheck(option:any) {
-    console.log(option);
   }
 
 }
@@ -153,6 +149,8 @@ export class Quiz implements OnInit {
 
   @Input() data: any;
 
+  @Output() completed: EventEmitter<any> = new EventEmitter<any>();
+
   constructor() { }
 
   ngOnInit() {
@@ -160,14 +158,16 @@ export class Quiz implements OnInit {
 
   submitQuiz() {
     let quizData = this.data;
-    quizData.sets.forEach(function(set:any) {
-      set.questions.forEach(function(question:any) {
+    let questionsTotal: number = 0;
+    quizData.sets.forEach(function(set: any) {
+      set.questions.forEach(function(question: any) {
+        questionsTotal++;
         question.submitted = true;
         if (question.type === 'checkbox') {
-          let checkboxCorrect:number = 0;
-          let checkboxIncorrect:number = 0;
+          let checkboxCorrect: number = 0;
+          let checkboxIncorrect: number = 0;
           // check to see if checked inputs are correct
-          question.answer.forEach(function(answer:string) {
+          question.answer.forEach(function(answer: string) {
             Object.keys(question.input).forEach(function(key, index) {
               if (question.answerChoices[key] === answer) {
                 checkboxCorrect++;
@@ -186,7 +186,7 @@ export class Quiz implements OnInit {
             quizData.numberCorrect++;
           }
         } else {
-          question.answer.forEach(function(answer:string) {
+          question.answer.forEach(function(answer: string) {
             if (question.input === answer) {
               question.correct = true;
               quizData.numberCorrect++;
@@ -196,6 +196,10 @@ export class Quiz implements OnInit {
       })
     });
     quizData.inputDisabled = true;
+    this.completed.emit({
+      questionsTotal: questionsTotal,
+      quizData: quizData
+    });
   }
 
   reload() {
