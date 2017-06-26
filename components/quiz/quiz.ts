@@ -203,7 +203,16 @@ export class Quiz implements OnInit {
   }
 
   reload() {
-    window.location.reload();
+    let quizData = this.data;
+    quizData.numberCorrect = 0;
+    quizData.sets.forEach(function(set: any) {
+      set.questions.forEach(function(question: any) {
+        question.input = [];
+        question.submitted = false;
+        question.correct = false;
+      });
+    });
+    quizData.inputDisabled = false;
   }
 
 }
