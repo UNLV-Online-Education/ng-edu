@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
       <div class="cardset" [ngClass]="{'flip': card.flipped, 'show': showCard(i)}" *ngFor="let card of data.cards; let i = index;">
         <!-- Front -->
         <div class="card front" (click)="flipCard(i)">
-          <div class="card-contents">
+          <div class="card-contents" [ngClass]="{'disable-centering': card.front.disableCentering}">
             <img *ngIf="card.front.image" [src]="card.front.image" [alt]="card.front.alt">
             <p *ngIf="card.front.copy">
               <strong>{{card.front.copy}}</strong>
@@ -19,7 +19,7 @@ import { CommonModule } from '@angular/common';
         </div>
         <!-- Back -->
         <div class="card back" (click)="flipCard(i)">
-          <div class="card-contents">
+          <div class="card-contents" [ngClass]="{'disable-centering': card.back.disableCentering}">
             <img *ngIf="card.back.image" [src]="card.back.image" [alt]="card.back.alt">
             <p *ngIf="card.back.copy">
               <strong>{{card.back.copy}}</strong>
@@ -100,11 +100,10 @@ import { CommonModule } from '@angular/common';
                 background-color: transparent;
                 background: #fff;
                 box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.26);
-
+                overflow-y: auto;
             }
 
             div.cardset div.card.front {
-                overflow: hidden;
                 z-index:1000;
                 -ms-transform: rotateX(0deg) rotateY(0deg);
                 -webkit-transform: rotateX(0deg) rotateY(0deg);
@@ -126,11 +125,24 @@ import { CommonModule } from '@angular/common';
             }
 
             div.cardset div.card.back {
+              opacity: 0;
               background-image:
-              linear-gradient(180deg, white 3rem, #F0A4A4 calc(3rem), #F0A4A4 calc(3rem + 2px), transparent 1px),
-              repeating-linear-gradient(0deg, transparent, transparent 1.5rem, #DDD 1px, #DDD calc(1.5rem + 1px));
+                linear-gradient(
+                  180deg, white 3rem,
+                  #F0A4A4 calc(3rem),
+                  #F0A4A4 calc(3rem + 2px),
+                  transparent 1px
+                ),
+                repeating-linear-gradient(
+                  0deg,
+                  transparent,
+                  transparent 1.5rem,
+                  #DDD 1px,
+                  #DDD calc(1.5rem + 1px)
+                );
               box-shadow: 1px 1px 3px rgba(0,0,0,.25);
               background-size: auto 100%;
+              background-attachment: local;
               z-index: 800;
               -ms-transform: rotateY(-180deg);
               -webkit-transform: rotateY(-180deg);
@@ -142,6 +154,9 @@ import { CommonModule } from '@angular/common';
             }
 
             div.cardset.flip div.card.back {
+                opacity: 1;
+                -webkit-transition: all .3s ease-in-out;
+                transition: all .3s ease-in-out;
                 z-index: 1000;
                 -ms-transform: rotateX(0deg) rotateY(0deg);
                 -webkit-transform: rotateX(0deg) rotateY(0deg);
@@ -154,6 +169,14 @@ import { CommonModule } from '@angular/common';
                     -webkit-transform: translateY(-50%);
                     -ms-transform: translateY(-50%);
                     transform: translateY(-50%);
+                }
+
+                div.cardset div.card div.card-contents.disable-centering {
+                    text-align: left;
+                    top: 0%;
+                    -webkit-transform: none;
+                    -ms-transform: none;
+                    transform: none;
                 }
 
                     div.cardset div.card div.card-contents img {
