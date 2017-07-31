@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
             <p *ngIf="card.front.copy">
               <strong>{{card.front.copy}}</strong>
             <p>
+            <div *ngIf="card.front.html" [innerHtml]="card.front.html"></div>
           </div>
         </div>
         <!-- Back -->
@@ -23,6 +24,7 @@ import { CommonModule } from '@angular/common';
             <p *ngIf="card.back.copy">
               <strong>{{card.back.copy}}</strong>
             </p>
+            <div *ngIf="card.back.html" [innerHtml]="card.back.html"></div>
           </div>
         </div>
       </div>
