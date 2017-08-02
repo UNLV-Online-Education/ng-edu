@@ -5,34 +5,37 @@ import { QuizModule } from '../quiz/quiz';
 @Component({
   selector: 'oe-interactive-text',
   template: `
-    <span class="group" *ngFor="let exercise of data; let i = index;">
-      <span [innerHtml]="exercise.before"></span>
-      <span class="clickable" [ngClass]="{'highlight': isHighlighted(exercise), 'completed': exercise.completed}">
-        <span (click)="clickable(exercise, i)">{{exercise.clickable}}</span>
-        <span class="choices animated fadeInRight" *ngIf="exercise.showChoices">
-          <nav>
-            <button class="btn-close" (click)="closeAllPrompts()">
-              <div class="ex">
-                <span class="line forward"></span>
-                <span class="line back"></span>
-              </div>
-            </button>
-          </nav>
-          <oe-quiz [data]="exercise.oeQuiz" *ngIf="exercise?.oeQuiz" (completed)="completed($event)"></oe-quiz>
+    <p class="paragraph" *ngFor="let paragraph of data.paragraphs">
+      <span class="exercise" *ngFor="let exercise of paragraph.exercises">
+        <span class="before-clickable" [innerHtml]="exercise.before"></span>
+        <span class="clickable" [ngClass]="{'highlight': isHighlighted(exercise), 'completed': exercise.completed}">
+          <span (click)="clickable(exercise)">{{exercise.clickable}}</span>
+          <span class="choices animated fadeInRight" *ngIf="exercise.showChoices">
+            <nav>
+              <button class="btn-close" (click)="closeAllPrompts()">
+                <div class="ex">
+                  <span class="line forward"></span>
+                  <span class="line back"></span>
+                </div>
+              </button>
+            </nav>
+            <oe-quiz [data]="exercise.oeQuiz" *ngIf="exercise?.oeQuiz" (completed)="completedEvent($event, exercise)"></oe-quiz>
+          </span>
         </span>
+        <span class="after-clickable" [innerHtml]="exercise.after"></span>
       </span>
-      <span [innerHtml]="exercise.after"></span>
-    </span>
-    <p class="error-counter">
-      <span>{{correctedExercises(data)}} out of {{data.length}} completed</span>
+    </p>
+    <p class="exercise-completion-counter">
+      <span>{{correctedExercisesCount()}} out of {{totalExercisesCount()}} completed</span>
     </p>
   `,
   styles: [`
+
     .group {
       cursor: pointer;
     }
 
-    p.error-counter span {
+    p.exercise-completion-counter span {
       font-weight: bold;
       border-radius: 2px;
     }
@@ -133,6 +136,7 @@ import { QuizModule } from '../quiz/quiz';
         -webkit-transform: rotate(90deg);
         transform: rotate(90deg);
       }
+
   `]
 })
 export class InteractiveText implements OnInit {
@@ -145,22 +149,23 @@ export class InteractiveText implements OnInit {
   }
 
   closeAllPrompts() {
-    this.data.forEach((group: any) => {
-      group.showChoices = false;
-    });
+    for (let paragraph of this.data.paragraphs) {
+      for (let exercise of paragraph.exercises) {
+        exercise.showChoices = false;
+      }
+    }
   }
 
-  clickable(exercise: any, i: any) {
+  clickable(exercise: any) {
     this.closeAllPrompts();
     if (exercise.oeQuiz) {
       exercise.showChoices = true;
-      exercise.oeQuiz.exercise = i;
     } else {
       exercise.completed = true;
     }
   }
 
-  isHighlighted(exercise :any) {
+  isHighlighted(exercise: any) {
     if (exercise.completed && exercise.states.complete.highlight) {
       return true;
     } else if (!exercise.completed && exercise.states.incomplete.highlight) {
@@ -176,20 +181,39 @@ export class InteractiveText implements OnInit {
     }
   }
 
-  correctedExercises(exercises: any) {
-    var count: number = 0;
-    for (let i = 0; i < exercises.length; i++) {
-      if (exercises[i].completed) {
-        count++;
+  selectChoice(exercise: any, choice: string) {
+    if (choice === exercise.correct) {
+      exercise.clickable = exercise.correct;
+      exercise.completed = true;
+    }
+  }
+
+  completedEvent(event: any, exercise: any) {
+    if (event.quizData.numberCorrect === event.questionsTotal) {
+      exercise.completed = true;
+    }
+  }
+
+  correctedExercisesCount() {
+    let count: number = 0;
+    for (let paragraph of this.data.paragraphs) {
+      for (let exercise of paragraph.exercises) {
+        if (exercise.completed) {
+          count++;
+        }
       }
     }
     return count;
   }
 
-  completed(event: any) {
-    if (event.quizData.numberCorrect === event.questionsTotal) {
-      this.data[event.quizData.exercise].completed = true;
+  totalExercisesCount() {
+    let count: number = 0;
+    for (let paragraph of this.data.paragraphs) {
+      for (let exercise of paragraph.exercises) {
+        count++;
+      }
     }
+    return count;
   }
 
 }
