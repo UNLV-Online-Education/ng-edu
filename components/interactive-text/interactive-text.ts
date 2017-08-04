@@ -210,7 +210,9 @@ export class InteractiveText implements OnInit {
     let count: number = 0;
     for (let paragraph of this.data.paragraphs) {
       for (let exercise of paragraph.exercises) {
-        count++;
+        if (exercise.clickable) {
+          count++;
+        }
       }
     }
     return count;
