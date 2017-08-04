@@ -46,7 +46,6 @@ import { QuizModule } from '../quiz/quiz';
 
     span.clickable {
       position: relative;
-      display: inline-block;
       border-radius: 2px;
     }
 
