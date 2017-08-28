@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
     <section class="oe-layer-toggle-controls" *ngIf="data">
       <ul>
         <li *ngFor="let layer of data.layers">
-          <span (click)="activate(layer)" [ngClass]="{active: layer.active}">{{layer.label}}</span>
+          <button (click)="activate(layer)" [ngClass]="{active: layer.active}">{{layer.label}}</button>
         </li>
       </ul>
     </section>
@@ -33,13 +33,15 @@ import { CommonModule } from '@angular/common';
       text-indent: -1rem;
       padding-left: 1rem;
     }
-    .oe-layer-toggle-controls ul li span {
+    .oe-layer-toggle-controls ul li button {
       cursor: pointer;
+      background: none;
+      border: none;
     }
-    .oe-layer-toggle-controls ul li span:hover {
+    .oe-layer-toggle-controls ul li button:hover {
       opacity: .80;
     }
-    .oe-layer-toggle-controls ul li span.active {
+    .oe-layer-toggle-controls ul li button.active {
       font-weight: bold;
     }
   `]
