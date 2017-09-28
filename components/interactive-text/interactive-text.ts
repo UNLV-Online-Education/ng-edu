@@ -1,6 +1,6 @@
 import { NgModule, Component, OnInit, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { QuizModule } from 'ng2-edu';
+import { QuizModule } from '../quiz/quiz';
 
 @Component({
   selector: 'oe-interactive-text',
