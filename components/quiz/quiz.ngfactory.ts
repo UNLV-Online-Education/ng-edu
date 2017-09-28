@@ -19,29 +19,51 @@ export const QuizModuleNgFactory:i0.NgModuleFactory<i1.QuizModule> = i0.ɵcmf(i1
           i0.ɵmpd(512,i3.ɵba,i3.ɵba,([] as any[])),i0.ɵmpd(512,i3.FormsModule,i3.FormsModule,
               ([] as any[])),i0.ɵmpd(512,i1.QuizModule,i1.QuizModule,([] as any[]))]);
     });
-const styles_Quiz:any[] = ['span.correct[_ngcontent-%COMP%] {\n    	color: #4CAF50;\n    }\n    span.incorrect[_ngcontent-%COMP%] {\n    	color: #F44336;\n    }\n    .pure-form[_ngcontent-%COMP%]   fieldset[_ngcontent-%COMP%] {\n    	border: 0;\n    	padding: 0;\n    }\n    fieldset[_ngcontent-%COMP%]   p[_ngcontent-%COMP%], fieldset[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%] {\n    	max-width: 48rem;\n    }\n      fieldset[_ngcontent-%COMP%]   legend[_ngcontent-%COMP%] {\n        margin-bottom: 1rem;\n        font-weight: bold;\n      }\n    		fieldset[_ngcontent-%COMP%]   div.question[_ngcontent-%COMP%]   p.q-counter[_ngcontent-%COMP%] {\n    			float: left;\n    			width: 3.25rem;\n    			padding-left: 1.25rem;\n    		}\n    	fieldset[_ngcontent-%COMP%]   div.question[_ngcontent-%COMP%]   div.q-body[_ngcontent-%COMP%] {\n    			display: block;\n    			overflow: hidden;\n    		}\n    		fieldset[_ngcontent-%COMP%]   div.question.submitted[_ngcontent-%COMP%]   p.q-counter[_ngcontent-%COMP%] {\n    			padding-left: 0;\n    		}\n    			form.quiz[_ngcontent-%COMP%]   fieldset[_ngcontent-%COMP%]   div.question[_ngcontent-%COMP%]   p.q-counter[_ngcontent-%COMP%]   span.q-grade[_ngcontent-%COMP%] {\n    				float: left;\n    				width: 1rem;\n    				margin-right: .25rem;\n    			}\n    			form.quiz[_ngcontent-%COMP%]   fieldset[_ngcontent-%COMP%]   div.question[_ngcontent-%COMP%]   p.q-counter[_ngcontent-%COMP%], form.quiz[_ngcontent-%COMP%]   fieldset[_ngcontent-%COMP%]   div.question[_ngcontent-%COMP%]   p.q-intro[_ngcontent-%COMP%] {\n    				margin-top: 0;\n    			}\n    			form.quiz[_ngcontent-%COMP%]   div.question[_ngcontent-%COMP%]   p.feedback[_ngcontent-%COMP%] {\n    				margin-top: 0;\n    			}'];
+const styles_Quiz:any[] = ['.oe-quiz-wrapper[_ngcontent-%COMP%]    > nav[_ngcontent-%COMP%] {\n      display: none;\n    }\n\n    .oe-quiz-wrapper[_ngcontent-%COMP%]    > .tab-body[_ngcontent-%COMP%] {\n      display: block;\n    }\n\n    .oe-quiz-wrapper.finished[_ngcontent-%COMP%]    > nav[_ngcontent-%COMP%] {\n      display: block;\n      border-bottom: 2px solid #e5e5e5;\n    }\n\n    .oe-quiz-wrapper.finished[_ngcontent-%COMP%]    > nav[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n      opacity: .7;\n      margin-right: 2px;\n    }\n\n    .oe-quiz-wrapper.finished[_ngcontent-%COMP%]    > nav[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%] {\n      opacity: 1;\n    }\n\n    .oe-quiz-wrapper.finished[_ngcontent-%COMP%]    > .tab-body[_ngcontent-%COMP%] {\n      display: none;\n    }\n\n    .oe-quiz-wrapper.finished[_ngcontent-%COMP%]    > .tab-body.active[_ngcontent-%COMP%] {\n      display: block;\n    }\n\n    span.correct[_ngcontent-%COMP%] {\n    	color: #4CAF50;\n    }\n\n    span.incorrect[_ngcontent-%COMP%] {\n    	color: #F44336;\n    }\n\n    .pure-form[_ngcontent-%COMP%]   fieldset[_ngcontent-%COMP%] {\n    	border: 0;\n    	padding: 0;\n    }\n\n    fieldset[_ngcontent-%COMP%]   p[_ngcontent-%COMP%], fieldset[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%] {\n    	max-width: 48rem;\n    }\n\n      fieldset[_ngcontent-%COMP%]   legend[_ngcontent-%COMP%] {\n        margin-bottom: 1rem;\n        font-weight: bold;\n      }\n\n    		fieldset[_ngcontent-%COMP%]   div.question[_ngcontent-%COMP%]   p.q-counter[_ngcontent-%COMP%] {\n    			float: left;\n    			width: 3.25rem;\n    			padding-left: 1.25rem;\n        }\n        \n    	fieldset[_ngcontent-%COMP%]   div.question[_ngcontent-%COMP%]   div.q-body[_ngcontent-%COMP%] {\n        display: block;\n        overflow: hidden;\n      }\n      \n      fieldset[_ngcontent-%COMP%]   div.question.submitted[_ngcontent-%COMP%]   p.q-counter[_ngcontent-%COMP%] {\n        padding-left: 0;\n      }\n      \n        form.quiz[_ngcontent-%COMP%]   fieldset[_ngcontent-%COMP%]   div.question[_ngcontent-%COMP%]   p.q-counter[_ngcontent-%COMP%]   span.q-grade[_ngcontent-%COMP%] {\n          float: left;\n          width: 1rem;\n          margin-right: .25rem;\n        }\n        \n        form.quiz[_ngcontent-%COMP%]   fieldset[_ngcontent-%COMP%]   div.question[_ngcontent-%COMP%]   p.q-counter[_ngcontent-%COMP%], form.quiz[_ngcontent-%COMP%]   fieldset[_ngcontent-%COMP%]   div.question[_ngcontent-%COMP%]   p.q-intro[_ngcontent-%COMP%] {\n          margin-top: 0;\n        }\n        \n        form.quiz[_ngcontent-%COMP%]   div.question[_ngcontent-%COMP%]   p.feedback[_ngcontent-%COMP%] {\n          margin-top: 0;\n        }'];
 export const RenderType_Quiz:i0.RendererType2 = i0.ɵcrt({encapsulation:0,styles:styles_Quiz,
     data:{}});
-function View_Quiz_4(_l:any):i0.ɵViewDefinition {
+function View_Quiz_1(_l:any):i0.ɵViewDefinition {
+  return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),3,'button',[['class',
+      'pure-button oe-quiz-tab']],(null as any),[[(null as any),'click']],(_v,en,$event) => {
+    var ad:boolean = true;
+    var _co:any = _v.component;
+    if (('click' === en)) {
+      const pd_0:any = ((<any>_co.setActiveTab(_v.context.index)) !== false);
+      ad = (pd_0 && ad);
+    }
+    return ad;
+  },(null as any),(null as any))),i0.ɵdid(278528,(null as any),0,i2.NgClass,[i0.IterableDiffers,
+      i0.KeyValueDiffers,i0.ElementRef,i0.Renderer],{klass:[0,'klass'],ngClass:[1,
+      'ngClass']},(null as any)),i0.ɵpod({'active':0}),(_l()(),i0.ɵted((null as any),
+      ['','']))],(_ck,_v) => {
+    const currVal_0:any = 'pure-button oe-quiz-tab';
+    const currVal_1:any = _ck(_v,2,0,_v.context.$implicit.active);
+    _ck(_v,1,0,currVal_0,currVal_1);
+  },(_ck,_v) => {
+    const currVal_2:any = _v.context.$implicit.name;
+    _ck(_v,3,0,currVal_2);
+  });
+}
+function View_Quiz_6(_l:any):i0.ɵViewDefinition {
   return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),0,'span',[['class',
       'fa fa-check correct animated tada']],(null as any),(null as any),(null as any),
       (null as any),(null as any)))],(null as any),(null as any));
 }
-function View_Quiz_5(_l:any):i0.ɵViewDefinition {
+function View_Quiz_7(_l:any):i0.ɵViewDefinition {
   return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),0,'span',[['class',
       'fa fa-close incorrect animated wobble']],(null as any),(null as any),(null as any),
       (null as any),(null as any)))],(null as any),(null as any));
 }
-function View_Quiz_3(_l:any):i0.ɵViewDefinition {
+function View_Quiz_5(_l:any):i0.ɵViewDefinition {
   return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),7,'span',[['class',
       'q-grade']],(null as any),(null as any),(null as any),(null as any),(null as any))),
-      (_l()(),i0.ɵted((null as any),['\n              '])),(_l()(),i0.ɵand(16777216,
-          (null as any),(null as any),1,(null as any),View_Quiz_4)),i0.ɵdid(16384,
+      (_l()(),i0.ɵted((null as any),['\n                    '])),(_l()(),i0.ɵand(16777216,
+          (null as any),(null as any),1,(null as any),View_Quiz_6)),i0.ɵdid(16384,
           (null as any),0,i2.NgIf,[i0.ViewContainerRef,i0.TemplateRef],{ngIf:[0,'ngIf']},
-          (null as any)),(_l()(),i0.ɵted((null as any),['\n              '])),(_l()(),
-          i0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_Quiz_5)),
+          (null as any)),(_l()(),i0.ɵted((null as any),['\n                    '])),
+      (_l()(),i0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_Quiz_7)),
       i0.ɵdid(16384,(null as any),0,i2.NgIf,[i0.ViewContainerRef,i0.TemplateRef],{ngIf:[0,
-          'ngIf']},(null as any)),(_l()(),i0.ɵted((null as any),['\n            ']))],
+          'ngIf']},(null as any)),(_l()(),i0.ɵted((null as any),['\n                  ']))],
       (_ck,_v) => {
         const currVal_0:any = (<any>_v.parent).context.$implicit.correct;
         _ck(_v,3,0,currVal_0);
@@ -49,17 +71,17 @@ function View_Quiz_3(_l:any):i0.ɵViewDefinition {
         _ck(_v,6,0,currVal_1);
       },(null as any));
 }
-function View_Quiz_6(_l:any):i0.ɵViewDefinition {
+function View_Quiz_8(_l:any):i0.ɵViewDefinition {
   return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),1,'question-options',
       ([] as any[]),(null as any),(null as any),(null as any),View_QuizQuestionOptions_0,
       RenderType_QuizQuestionOptions)),i0.ɵdid(114688,(null as any),0,i1.QuizQuestionOptions,
       ([] as any[]),{data:[0,'data'],index:[1,'index']},(null as any))],(_ck,_v) => {
     const currVal_0:any = (<any>_v.parent).context.$implicit;
-    const currVal_1:any = (((<any>(<any>_v.parent).parent).context.index.toString() + '-') + (<any>_v.parent).context.index.toString());
+    const currVal_1:any = (((<any>(<any>(<any>_v.parent).parent).parent).context.index.toString() + '-') + (<any>_v.parent).context.index.toString());
     _ck(_v,1,0,currVal_0,currVal_1);
   },(null as any));
 }
-function View_Quiz_8(_l:any):i0.ɵViewDefinition {
+function View_Quiz_10(_l:any):i0.ɵViewDefinition {
   return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),5,'span',([] as any[]),
       (null as any),(null as any),(null as any),(null as any),(null as any))),(_l()(),
       i0.ɵeld(0,(null as any),(null as any),1,'strong',([] as any[]),(null as any),
@@ -72,52 +94,53 @@ function View_Quiz_8(_l:any):i0.ɵViewDefinition {
         _ck(_v,5,0,currVal_0);
       });
 }
-function View_Quiz_7(_l:any):i0.ɵViewDefinition {
+function View_Quiz_9(_l:any):i0.ɵViewDefinition {
   return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),4,'p',[['class',
       'feedback']],(null as any),(null as any),(null as any),(null as any),(null as any))),
-      (_l()(),i0.ɵted((null as any),['\n              '])),(_l()(),i0.ɵand(16777216,
-          (null as any),(null as any),1,(null as any),View_Quiz_8)),i0.ɵdid(16384,
+      (_l()(),i0.ɵted((null as any),['\n                    '])),(_l()(),i0.ɵand(16777216,
+          (null as any),(null as any),1,(null as any),View_Quiz_10)),i0.ɵdid(16384,
           (null as any),0,i2.NgIf,[i0.ViewContainerRef,i0.TemplateRef],{ngIf:[0,'ngIf']},
-          (null as any)),(_l()(),i0.ɵted((null as any),['\n            ']))],(_ck,
-      _v) => {
-    const currVal_0:any = (<any>_v.parent).context.$implicit.submitted;
-    _ck(_v,3,0,currVal_0);
-  },(null as any));
+          (null as any)),(_l()(),i0.ɵted((null as any),['\n                  ']))],
+      (_ck,_v) => {
+        const currVal_0:any = (<any>_v.parent).context.$implicit.submitted;
+        _ck(_v,3,0,currVal_0);
+      },(null as any));
 }
-function View_Quiz_2(_l:any):i0.ɵViewDefinition {
+function View_Quiz_4(_l:any):i0.ɵViewDefinition {
   return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),24,'div',[['class',
       'question']],(null as any),(null as any),(null as any),(null as any),(null as any))),
       i0.ɵdid(278528,(null as any),0,i2.NgClass,[i0.IterableDiffers,i0.KeyValueDiffers,
           i0.ElementRef,i0.Renderer],{klass:[0,'klass'],ngClass:[1,'ngClass']},(null as any)),
-      i0.ɵpod(['submitted']),(_l()(),i0.ɵted((null as any),['\n          '])),(_l()(),
-          i0.ɵeld(0,(null as any),(null as any),7,'p',[['class','q-counter']],(null as any),
-              (null as any),(null as any),(null as any),(null as any))),(_l()(),i0.ɵted((null as any),
-          ['\n            '])),(_l()(),i0.ɵand(16777216,(null as any),(null as any),
-          1,(null as any),View_Quiz_3)),i0.ɵdid(16384,(null as any),0,i2.NgIf,[i0.ViewContainerRef,
-          i0.TemplateRef],{ngIf:[0,'ngIf']},(null as any)),(_l()(),i0.ɵted((null as any),
-          ['\n            '])),(_l()(),i0.ɵeld(0,(null as any),(null as any),1,'span',
-          ([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
-      (_l()(),i0.ɵted((null as any),['','.'])),(_l()(),i0.ɵted((null as any),['\n          '])),
-      (_l()(),i0.ɵted((null as any),['\n          '])),(_l()(),i0.ɵeld(0,(null as any),
+      i0.ɵpod({'submitted':0}),(_l()(),i0.ɵted((null as any),['\n                '])),
+      (_l()(),i0.ɵeld(0,(null as any),(null as any),7,'p',[['class','q-counter']],
+          (null as any),(null as any),(null as any),(null as any),(null as any))),
+      (_l()(),i0.ɵted((null as any),['\n                  '])),(_l()(),i0.ɵand(16777216,
+          (null as any),(null as any),1,(null as any),View_Quiz_5)),i0.ɵdid(16384,
+          (null as any),0,i2.NgIf,[i0.ViewContainerRef,i0.TemplateRef],{ngIf:[0,'ngIf']},
+          (null as any)),(_l()(),i0.ɵted((null as any),['\n                  '])),
+      (_l()(),i0.ɵeld(0,(null as any),(null as any),1,'span',([] as any[]),(null as any),
+          (null as any),(null as any),(null as any),(null as any))),(_l()(),i0.ɵted((null as any),
+          ['','.'])),(_l()(),i0.ɵted((null as any),['\n                '])),(_l()(),
+          i0.ɵted((null as any),['\n                '])),(_l()(),i0.ɵeld(0,(null as any),
           (null as any),10,'div',[['class','q-body']],(null as any),(null as any),
           (null as any),(null as any),(null as any))),(_l()(),i0.ɵted((null as any),
-          ['\n            '])),(_l()(),i0.ɵeld(0,(null as any),(null as any),1,'p',
-          [['class','q-intro']],(null as any),(null as any),(null as any),(null as any),
-          (null as any))),(_l()(),i0.ɵted((null as any),['\n              ','\n            '])),
-      (_l()(),i0.ɵted((null as any),['\n            '])),(_l()(),i0.ɵand(16777216,
-          (null as any),(null as any),1,(null as any),View_Quiz_6)),i0.ɵdid(16384,
-          (null as any),0,i2.NgIf,[i0.ViewContainerRef,i0.TemplateRef],{ngIf:[0,'ngIf']},
-          (null as any)),(_l()(),i0.ɵted((null as any),['\n            '])),(_l()(),
-          i0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_Quiz_7)),
+          ['\n                  '])),(_l()(),i0.ɵeld(0,(null as any),(null as any),
+          1,'p',[['class','q-intro']],(null as any),(null as any),(null as any),(null as any),
+          (null as any))),(_l()(),i0.ɵted((null as any),['\n                    ',
+          '\n                  '])),(_l()(),i0.ɵted((null as any),['\n                  '])),
+      (_l()(),i0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_Quiz_8)),
       i0.ɵdid(16384,(null as any),0,i2.NgIf,[i0.ViewContainerRef,i0.TemplateRef],{ngIf:[0,
-          'ngIf']},(null as any)),(_l()(),i0.ɵted((null as any),['\n          '])),
-      (_l()(),i0.ɵted((null as any),['\n        ']))],(_ck,_v) => {
+          'ngIf']},(null as any)),(_l()(),i0.ɵted((null as any),['\n                  '])),
+      (_l()(),i0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_Quiz_9)),
+      i0.ɵdid(16384,(null as any),0,i2.NgIf,[i0.ViewContainerRef,i0.TemplateRef],{ngIf:[0,
+          'ngIf']},(null as any)),(_l()(),i0.ɵted((null as any),['\n                '])),
+      (_l()(),i0.ɵted((null as any),['\n              ']))],(_ck,_v) => {
     const currVal_0:any = 'question';
     const currVal_1:any = _ck(_v,2,0,_v.context.$implicit.submitted);
     _ck(_v,1,0,currVal_0,currVal_1);
     const currVal_2:any = _v.context.$implicit.submitted;
     _ck(_v,7,0,currVal_2);
-    const currVal_5:any = _v.context.$implicit.answerChoices;
+    const currVal_5:any = _v.context.$implicit.answers;
     _ck(_v,19,0,currVal_5);
     const currVal_6:any = _v.context.$implicit.feedback;
     _ck(_v,22,0,currVal_6);
@@ -128,32 +151,84 @@ function View_Quiz_2(_l:any):i0.ɵViewDefinition {
     _ck(_v,16,0,currVal_4);
   });
 }
-function View_Quiz_1(_l:any):i0.ɵViewDefinition {
+function View_Quiz_3(_l:any):i0.ɵViewDefinition {
   return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),7,'fieldset',([] as any[]),
       (null as any),(null as any),(null as any),(null as any),(null as any))),(_l()(),
-      i0.ɵted((null as any),['\n        '])),(_l()(),i0.ɵeld(0,(null as any),(null as any),
-      1,'legend',([] as any[]),(null as any),(null as any),(null as any),(null as any),
-      (null as any))),(_l()(),i0.ɵted((null as any),['',''])),(_l()(),i0.ɵted((null as any),
-      ['\n        '])),(_l()(),i0.ɵand(16777216,(null as any),(null as any),1,(null as any),
-      View_Quiz_2)),i0.ɵdid(802816,(null as any),0,i2.NgForOf,[i0.ViewContainerRef,
-      i0.TemplateRef,i0.IterableDiffers],{ngForOf:[0,'ngForOf']},(null as any)),(_l()(),
-      i0.ɵted((null as any),['\n      ']))],(_ck,_v) => {
-    const currVal_1:any = _v.context.$implicit.questions;
+      i0.ɵted((null as any),['\n              '])),(_l()(),i0.ɵeld(0,(null as any),
+      (null as any),1,'legend',([] as any[]),(null as any),(null as any),(null as any),
+      (null as any),(null as any))),(_l()(),i0.ɵted((null as any),['',''])),(_l()(),
+      i0.ɵted((null as any),['\n              '])),(_l()(),i0.ɵand(16777216,(null as any),
+      (null as any),1,(null as any),View_Quiz_4)),i0.ɵdid(802816,(null as any),0,i2.NgForOf,
+      [i0.ViewContainerRef,i0.TemplateRef,i0.IterableDiffers],{ngForOf:[0,'ngForOf']},
+      (null as any)),(_l()(),i0.ɵted((null as any),['\n            ']))],(_ck,_v) => {
+    const currVal_1:any = (<any>_v.parent).context.$implicit.questions;
     _ck(_v,6,0,currVal_1);
   },(_ck,_v) => {
-    const currVal_0:any = _v.context.$implicit.intro;
+    const currVal_0:any = (<any>_v.parent).context.$implicit.intro;
     _ck(_v,3,0,currVal_0);
   });
 }
-function View_Quiz_9(_l:any):i0.ɵViewDefinition {
+function View_Quiz_2(_l:any):i0.ɵViewDefinition {
+  return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),4,(null as any),
+      (null as any),(null as any),(null as any),(null as any),(null as any),(null as any))),
+      (_l()(),i0.ɵted((null as any),['\n            '])),(_l()(),i0.ɵand(16777216,
+          (null as any),(null as any),1,(null as any),View_Quiz_3)),i0.ɵdid(16384,
+          (null as any),0,i2.NgIf,[i0.ViewContainerRef,i0.TemplateRef],{ngIf:[0,'ngIf']},
+          (null as any)),(_l()(),i0.ɵted((null as any),['\n          ']))],(_ck,_v) => {
+    var _co:any = _v.component;
+    const currVal_0:any = _co.isSetActive(_v.context.index);
+    _ck(_v,3,0,currVal_0);
+  },(null as any));
+}
+function View_Quiz_11(_l:any):i0.ɵViewDefinition {
+  return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),4,'nav',([] as any[]),
+      (null as any),(null as any),(null as any),(null as any),(null as any))),(_l()(),
+      i0.ɵted((null as any),['\n            '])),(_l()(),i0.ɵeld(0,(null as any),(null as any),
+      1,'button',[['class','pure-button'],['type','button']],(null as any),[[(null as any),
+          'click']],(_v,en,$event) => {
+        var ad:boolean = true;
+        var _co:any = _v.component;
+        if (('click' === en)) {
+          const pd_0:any = ((<any>_co.changeActive('next')) !== false);
+          ad = (pd_0 && ad);
+        }
+        return ad;
+      },(null as any),(null as any))),(_l()(),i0.ɵted((null as any),['Next'])),(_l()(),
+      i0.ɵted((null as any),['\n          ']))],(null as any),(null as any));
+}
+function View_Quiz_13(_l:any):i0.ɵViewDefinition {
   return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),1,'button',[['class',
       'pure-button'],['type','submit']],(null as any),(null as any),(null as any),
       (null as any),(null as any))),(_l()(),i0.ɵted((null as any),['Submit']))],(null as any),
       (null as any));
 }
-function View_Quiz_10(_l:any):i0.ɵViewDefinition {
+function View_Quiz_12(_l:any):i0.ɵViewDefinition {
+  return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),4,'p',([] as any[]),
+      (null as any),(null as any),(null as any),(null as any),(null as any))),(_l()(),
+      i0.ɵted((null as any),['\n            '])),(_l()(),i0.ɵand(16777216,(null as any),
+      (null as any),1,(null as any),View_Quiz_13)),i0.ɵdid(16384,(null as any),0,i2.NgIf,
+      [i0.ViewContainerRef,i0.TemplateRef],{ngIf:[0,'ngIf']},(null as any)),(_l()(),
+      i0.ɵted((null as any),['\n          ']))],(_ck,_v) => {
+    var _co:any = _v.component;
+    const currVal_0:boolean = !_co.data.inputDisabled;
+    _ck(_v,3,0,currVal_0);
+  },(null as any));
+}
+function View_Quiz_14(_l:any):i0.ɵViewDefinition {
+  return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),1,'p',([] as any[]),
+      (null as any),(null as any),(null as any),(null as any),(null as any))),(_l()(),
+      i0.ɵted((null as any),['\n          ',' You got ',' correct.\n        ']))],
+      (null as any),(_ck,_v) => {
+        var _co:any = _v.component;
+        const currVal_0:any = _co.data.feedback;
+        const currVal_1:any = _co.data.numberCorrect;
+        _ck(_v,1,0,currVal_0,currVal_1);
+      });
+}
+function View_Quiz_15(_l:any):i0.ɵViewDefinition {
   return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),1,'button',[['class',
-      'pure-button']],(null as any),[[(null as any),'click']],(_v,en,$event) => {
+      'pure-button'],['type','button']],(null as any),[[(null as any),'click']],(_v,
+      en,$event) => {
     var ad:boolean = true;
     var _co:any = _v.component;
     if (('click' === en)) {
@@ -164,75 +239,107 @@ function View_Quiz_10(_l:any):i0.ɵViewDefinition {
   },(null as any),(null as any))),(_l()(),i0.ɵted((null as any),['Retry']))],(null as any),
       (null as any));
 }
-function View_Quiz_11(_l:any):i0.ɵViewDefinition {
-  return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),1,'p',([] as any[]),
-      (null as any),(null as any),(null as any),(null as any),(null as any))),(_l()(),
-      i0.ɵted((null as any),['\n      ',' You got ',' correct.\n    ']))],(null as any),
-      (_ck,_v) => {
-        var _co:any = _v.component;
-        const currVal_0:any = _co.data.feedback;
-        const currVal_1:any = _co.data.numberCorrect;
-        _ck(_v,1,0,currVal_0,currVal_1);
-      });
-}
 export function View_Quiz_0(_l:any):i0.ɵViewDefinition {
   return i0.ɵvid(0,[(_l()(),i0.ɵted((null as any),['\n    '])),(_l()(),i0.ɵeld(0,(null as any),
-      (null as any),11,'form',[['class','pure-form quiz'],['novalidate','']],[[2,'ng-untouched',
-          (null as any)],[2,'ng-touched',(null as any)],[2,'ng-pristine',(null as any)],
-          [2,'ng-dirty',(null as any)],[2,'ng-valid',(null as any)],[2,'ng-invalid',
-              (null as any)],[2,'ng-pending',(null as any)]],[[(null as any),'ngSubmit'],
-          [(null as any),'submit'],[(null as any),'reset']],(_v,en,$event) => {
-        var ad:boolean = true;
-        var _co:i1.Quiz = _v.component;
-        if (('submit' === en)) {
-          const pd_0:any = ((<any>i0.ɵnov(_v,3).onSubmit($event)) !== false);
-          ad = (pd_0 && ad);
-        }
-        if (('reset' === en)) {
-          const pd_1:any = ((<any>i0.ɵnov(_v,3).onReset()) !== false);
-          ad = (pd_1 && ad);
-        }
-        if (('ngSubmit' === en)) {
-          const pd_2:any = ((<any>_co.submitQuiz()) !== false);
-          ad = (pd_2 && ad);
-        }
-        return ad;
-      },(null as any),(null as any))),i0.ɵdid(16384,(null as any),0,i3.ɵbf,([] as any[]),
-      (null as any),(null as any)),i0.ɵdid(16384,[['f',4]],0,i3.NgForm,[[8,(null as any)],
-      [8,(null as any)]],(null as any),{ngSubmit:'ngSubmit'}),i0.ɵprd(2048,(null as any),
-      i3.ControlContainer,(null as any),[i3.NgForm]),i0.ɵdid(16384,(null as any),0,
-      i3.NgControlStatusGroup,[i3.ControlContainer],(null as any),(null as any)),(_l()(),
-      i0.ɵted((null as any),['\n      '])),(_l()(),i0.ɵand(16777216,(null as any),
-      (null as any),1,(null as any),View_Quiz_1)),i0.ɵdid(802816,(null as any),0,i2.NgForOf,
-      [i0.ViewContainerRef,i0.TemplateRef,i0.IterableDiffers],{ngForOf:[0,'ngForOf']},
-      (null as any)),(_l()(),i0.ɵted((null as any),['\n      '])),(_l()(),i0.ɵand(16777216,
-      (null as any),(null as any),1,(null as any),View_Quiz_9)),i0.ɵdid(16384,(null as any),
-      0,i2.NgIf,[i0.ViewContainerRef,i0.TemplateRef],{ngIf:[0,'ngIf']},(null as any)),
-      (_l()(),i0.ɵted((null as any),['\n    '])),(_l()(),i0.ɵted((null as any),['\n    '])),
-      (_l()(),i0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_Quiz_10)),
+      (null as any),44,'div',[['class','oe-quiz-wrapper']],(null as any),(null as any),
+      (null as any),(null as any),(null as any))),i0.ɵdid(278528,(null as any),0,i2.NgClass,
+      [i0.IterableDiffers,i0.KeyValueDiffers,i0.ElementRef,i0.Renderer],{klass:[0,
+          'klass'],ngClass:[1,'ngClass']},(null as any)),i0.ɵpod({'finished':0}),(_l()(),
+      i0.ɵted((null as any),['\n      '])),(_l()(),i0.ɵeld(0,(null as any),(null as any),
+      4,'nav',([] as any[]),(null as any),(null as any),(null as any),(null as any),
+      (null as any))),(_l()(),i0.ɵted((null as any),['\n        '])),(_l()(),i0.ɵand(16777216,
+      (null as any),(null as any),1,(null as any),View_Quiz_1)),i0.ɵdid(802816,(null as any),
+      0,i2.NgForOf,[i0.ViewContainerRef,i0.TemplateRef,i0.IterableDiffers],{ngForOf:[0,
+          'ngForOf']},(null as any)),(_l()(),i0.ɵted((null as any),['\n      '])),
+      (_l()(),i0.ɵted((null as any),['\n      '])),(_l()(),i0.ɵeld(0,(null as any),
+          (null as any),19,'section',[['class','tab-body']],(null as any),(null as any),
+          (null as any),(null as any),(null as any))),i0.ɵdid(278528,(null as any),
+          0,i2.NgClass,[i0.IterableDiffers,i0.KeyValueDiffers,i0.ElementRef,i0.Renderer],
+          {klass:[0,'klass'],ngClass:[1,'ngClass']},(null as any)),i0.ɵpod({'active':0}),
+      (_l()(),i0.ɵted((null as any),['\n        '])),(_l()(),i0.ɵeld(0,(null as any),
+          (null as any),14,'form',[['class','pure-form quiz'],['novalidate','']],[[2,
+              'ng-untouched',(null as any)],[2,'ng-touched',(null as any)],[2,'ng-pristine',
+              (null as any)],[2,'ng-dirty',(null as any)],[2,'ng-valid',(null as any)],
+              [2,'ng-invalid',(null as any)],[2,'ng-pending',(null as any)]],[[(null as any),
+              'ngSubmit'],[(null as any),'submit'],[(null as any),'reset']],(_v,en,
+              $event) => {
+            var ad:boolean = true;
+            var _co:i1.Quiz = _v.component;
+            if (('submit' === en)) {
+              const pd_0:any = ((<any>i0.ɵnov(_v,17).onSubmit($event)) !== false);
+              ad = (pd_0 && ad);
+            }
+            if (('reset' === en)) {
+              const pd_1:any = ((<any>i0.ɵnov(_v,17).onReset()) !== false);
+              ad = (pd_1 && ad);
+            }
+            if (('ngSubmit' === en)) {
+              const pd_2:any = ((<any>_co.submitQuiz()) !== false);
+              ad = (pd_2 && ad);
+            }
+            return ad;
+          },(null as any),(null as any))),i0.ɵdid(16384,(null as any),0,i3.ɵbf,([] as any[]),
+          (null as any),(null as any)),i0.ɵdid(16384,[['f',4]],0,i3.NgForm,[[8,(null as any)],
+          [8,(null as any)]],(null as any),{ngSubmit:'ngSubmit'}),i0.ɵprd(2048,(null as any),
+          i3.ControlContainer,(null as any),[i3.NgForm]),i0.ɵdid(16384,(null as any),
+          0,i3.NgControlStatusGroup,[i3.ControlContainer],(null as any),(null as any)),
+      (_l()(),i0.ɵted((null as any),['\n          '])),(_l()(),i0.ɵand(16777216,(null as any),
+          (null as any),1,(null as any),View_Quiz_2)),i0.ɵdid(802816,(null as any),
+          0,i2.NgForOf,[i0.ViewContainerRef,i0.TemplateRef,i0.IterableDiffers],{ngForOf:[0,
+              'ngForOf']},(null as any)),(_l()(),i0.ɵted((null as any),['\n          '])),
+      (_l()(),i0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_Quiz_11)),
       i0.ɵdid(16384,(null as any),0,i2.NgIf,[i0.ViewContainerRef,i0.TemplateRef],{ngIf:[0,
-          'ngIf']},(null as any)),(_l()(),i0.ɵted((null as any),['\n    '])),(_l()(),
-          i0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_Quiz_11)),
+          'ngIf']},(null as any)),(_l()(),i0.ɵted((null as any),['\n          '])),
+      (_l()(),i0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_Quiz_12)),
       i0.ɵdid(16384,(null as any),0,i2.NgIf,[i0.ViewContainerRef,i0.TemplateRef],{ngIf:[0,
-          'ngIf']},(null as any)),(_l()(),i0.ɵted((null as any),['\n  ']))],(_ck,_v) => {
+          'ngIf']},(null as any)),(_l()(),i0.ɵted((null as any),['\n        '])),(_l()(),
+          i0.ɵted((null as any),['\n      '])),(_l()(),i0.ɵted((null as any),['\n      '])),
+      (_l()(),i0.ɵeld(0,(null as any),(null as any),12,'section',[['class','tab-body']],
+          (null as any),(null as any),(null as any),(null as any),(null as any))),
+      i0.ɵdid(278528,(null as any),0,i2.NgClass,[i0.IterableDiffers,i0.KeyValueDiffers,
+          i0.ElementRef,i0.Renderer],{klass:[0,'klass'],ngClass:[1,'ngClass']},(null as any)),
+      i0.ɵpod({'active':0}),(_l()(),i0.ɵted((null as any),['\n        '])),(_l()(),
+          i0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_Quiz_14)),
+      i0.ɵdid(16384,(null as any),0,i2.NgIf,[i0.ViewContainerRef,i0.TemplateRef],{ngIf:[0,
+          'ngIf']},(null as any)),(_l()(),i0.ɵted((null as any),['\n        '])),(_l()(),
+          i0.ɵeld(0,(null as any),(null as any),4,'p',([] as any[]),(null as any),
+              (null as any),(null as any),(null as any),(null as any))),(_l()(),i0.ɵted((null as any),
+          ['\n          '])),(_l()(),i0.ɵand(16777216,(null as any),(null as any),
+          1,(null as any),View_Quiz_15)),i0.ɵdid(16384,(null as any),0,i2.NgIf,[i0.ViewContainerRef,
+          i0.TemplateRef],{ngIf:[0,'ngIf']},(null as any)),(_l()(),i0.ɵted((null as any),
+          ['\n        '])),(_l()(),i0.ɵted((null as any),['\n      '])),(_l()(),i0.ɵted((null as any),
+          ['\n    '])),(_l()(),i0.ɵted((null as any),['\n  ']))],(_ck,_v) => {
     var _co:i1.Quiz = _v.component;
-    const currVal_7:any = _co.data.sets;
-    _ck(_v,8,0,currVal_7);
-    const currVal_8:boolean = !_co.data.inputDisabled;
-    _ck(_v,11,0,currVal_8);
-    const currVal_9:any = _co.data.inputDisabled;
-    _ck(_v,15,0,currVal_9);
-    const currVal_10:any = _co.data.inputDisabled;
-    _ck(_v,18,0,currVal_10);
+    const currVal_0:any = 'oe-quiz-wrapper';
+    const currVal_1:any = _ck(_v,3,0,_co.isSetBySetFinished());
+    _ck(_v,2,0,currVal_0,currVal_1);
+    const currVal_2:any = _co.tabs;
+    _ck(_v,8,0,currVal_2);
+    const currVal_3:any = 'tab-body';
+    const currVal_4:any = _ck(_v,13,0,_co.isActiveTab(1));
+    _ck(_v,12,0,currVal_3,currVal_4);
+    const currVal_12:any = _co.data.sets;
+    _ck(_v,22,0,currVal_12);
+    const currVal_13:any = _co.isNotOnLastSet();
+    _ck(_v,25,0,currVal_13);
+    const currVal_14:any = _co.isReadyForSubmission();
+    _ck(_v,28,0,currVal_14);
+    const currVal_15:any = 'tab-body';
+    const currVal_16:any = _ck(_v,34,0,_co.isActiveTab(0));
+    _ck(_v,33,0,currVal_15,currVal_16);
+    const currVal_17:any = _co.data.inputDisabled;
+    _ck(_v,37,0,currVal_17);
+    const currVal_18:any = _co.data.inputDisabled;
+    _ck(_v,42,0,currVal_18);
   },(_ck,_v) => {
-    const currVal_0:any = i0.ɵnov(_v,5).ngClassUntouched;
-    const currVal_1:any = i0.ɵnov(_v,5).ngClassTouched;
-    const currVal_2:any = i0.ɵnov(_v,5).ngClassPristine;
-    const currVal_3:any = i0.ɵnov(_v,5).ngClassDirty;
-    const currVal_4:any = i0.ɵnov(_v,5).ngClassValid;
-    const currVal_5:any = i0.ɵnov(_v,5).ngClassInvalid;
-    const currVal_6:any = i0.ɵnov(_v,5).ngClassPending;
-    _ck(_v,1,0,currVal_0,currVal_1,currVal_2,currVal_3,currVal_4,currVal_5,currVal_6);
+    const currVal_5:any = i0.ɵnov(_v,19).ngClassUntouched;
+    const currVal_6:any = i0.ɵnov(_v,19).ngClassTouched;
+    const currVal_7:any = i0.ɵnov(_v,19).ngClassPristine;
+    const currVal_8:any = i0.ɵnov(_v,19).ngClassDirty;
+    const currVal_9:any = i0.ɵnov(_v,19).ngClassValid;
+    const currVal_10:any = i0.ɵnov(_v,19).ngClassInvalid;
+    const currVal_11:any = i0.ɵnov(_v,19).ngClassPending;
+    _ck(_v,15,0,currVal_5,currVal_6,currVal_7,currVal_8,currVal_9,currVal_10,currVal_11);
   });
 }
 export function View_Quiz_Host_0(_l:any):i0.ɵViewDefinition {
@@ -248,83 +355,76 @@ const styles_QuizQuestionOptions:any[] = ['ul[_ngcontent-%COMP%] {\n      list-s
 export const RenderType_QuizQuestionOptions:i0.RendererType2 = i0.ɵcrt({encapsulation:0,
     styles:styles_QuizQuestionOptions,data:{}});
 function View_QuizQuestionOptions_2(_l:any):i0.ɵViewDefinition {
-  return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),8,'input',[['required',
-      ''],['type','radio']],[[8,'id',0],[1,'required',0],[2,'ng-untouched',(null as any)],
-      [2,'ng-touched',(null as any)],[2,'ng-pristine',(null as any)],[2,'ng-dirty',
-          (null as any)],[2,'ng-valid',(null as any)],[2,'ng-invalid',(null as any)],
-      [2,'ng-pending',(null as any)]],[[(null as any),'ngModelChange'],[(null as any),
-      'input'],[(null as any),'blur'],[(null as any),'compositionstart'],[(null as any),
-      'compositionend'],[(null as any),'change']],(_v,en,$event) => {
-    var ad:boolean = true;
-    var _co:any = _v.component;
-    if (('input' === en)) {
-      const pd_0:any = ((<any>i0.ɵnov(_v,1)._handleInput($event.target.value)) !== false);
-      ad = (pd_0 && ad);
-    }
-    if (('blur' === en)) {
-      const pd_1:any = ((<any>i0.ɵnov(_v,1).onTouched()) !== false);
-      ad = (pd_1 && ad);
-    }
-    if (('compositionstart' === en)) {
-      const pd_2:any = ((<any>i0.ɵnov(_v,1)._compositionStart()) !== false);
-      ad = (pd_2 && ad);
-    }
-    if (('compositionend' === en)) {
-      const pd_3:any = ((<any>i0.ɵnov(_v,1)._compositionEnd($event.target.value)) !== false);
-      ad = (pd_3 && ad);
-    }
-    if (('change' === en)) {
-      const pd_4:any = ((<any>i0.ɵnov(_v,2).onChange()) !== false);
-      ad = (pd_4 && ad);
-    }
-    if (('blur' === en)) {
-      const pd_5:any = ((<any>i0.ɵnov(_v,2).onTouched()) !== false);
-      ad = (pd_5 && ad);
-    }
-    if (('ngModelChange' === en)) {
-      const pd_6:any = ((<any>(_co.data.input = $event)) !== false);
-      ad = (pd_6 && ad);
-    }
-    return ad;
-  },(null as any),(null as any))),i0.ɵdid(16384,(null as any),0,i3.DefaultValueAccessor,
-      [i0.Renderer,i0.ElementRef,[2,i3.COMPOSITION_BUFFER_MODE]],(null as any),(null as any)),
-      i0.ɵdid(212992,(null as any),0,i3.RadioControlValueAccessor,[i0.Renderer,i0.ElementRef,
-          i3.ɵi,i0.Injector],{name:[0,'name'],value:[1,'value']},(null as any)),i0.ɵdid(16384,
-          (null as any),0,i3.RequiredValidator,([] as any[]),{required:[0,'required']},
-          (null as any)),i0.ɵprd(1024,(null as any),i3.NG_VALIDATORS,(p0_0:any) => {
-        return [p0_0];
-      },[i3.RequiredValidator]),i0.ɵprd(1024,(null as any),i3.NG_VALUE_ACCESSOR,(p0_0:any,
-          p1_0:any) => {
-        return [p0_0,p1_0];
-      },[i3.DefaultValueAccessor,i3.RadioControlValueAccessor]),i0.ɵdid(671744,(null as any),
-          0,i3.NgModel,[[8,(null as any)],[2,i3.NG_VALIDATORS],[8,(null as any)],[2,
-              i3.NG_VALUE_ACCESSOR]],{name:[0,'name'],isDisabled:[1,'isDisabled'],
+  return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),6,'input',[['type',
+      'radio']],[[8,'id',0],[2,'ng-untouched',(null as any)],[2,'ng-touched',(null as any)],
+      [2,'ng-pristine',(null as any)],[2,'ng-dirty',(null as any)],[2,'ng-valid',(null as any)],
+      [2,'ng-invalid',(null as any)],[2,'ng-pending',(null as any)]],[[(null as any),
+      'ngModelChange'],[(null as any),'input'],[(null as any),'blur'],[(null as any),
+      'compositionstart'],[(null as any),'compositionend'],[(null as any),'change']],
+      (_v,en,$event) => {
+        var ad:boolean = true;
+        var _co:any = _v.component;
+        if (('input' === en)) {
+          const pd_0:any = ((<any>i0.ɵnov(_v,1)._handleInput($event.target.value)) !== false);
+          ad = (pd_0 && ad);
+        }
+        if (('blur' === en)) {
+          const pd_1:any = ((<any>i0.ɵnov(_v,1).onTouched()) !== false);
+          ad = (pd_1 && ad);
+        }
+        if (('compositionstart' === en)) {
+          const pd_2:any = ((<any>i0.ɵnov(_v,1)._compositionStart()) !== false);
+          ad = (pd_2 && ad);
+        }
+        if (('compositionend' === en)) {
+          const pd_3:any = ((<any>i0.ɵnov(_v,1)._compositionEnd($event.target.value)) !== false);
+          ad = (pd_3 && ad);
+        }
+        if (('change' === en)) {
+          const pd_4:any = ((<any>i0.ɵnov(_v,2).onChange()) !== false);
+          ad = (pd_4 && ad);
+        }
+        if (('blur' === en)) {
+          const pd_5:any = ((<any>i0.ɵnov(_v,2).onTouched()) !== false);
+          ad = (pd_5 && ad);
+        }
+        if (('ngModelChange' === en)) {
+          const pd_6:any = ((<any>(_co.data.input = $event)) !== false);
+          ad = (pd_6 && ad);
+        }
+        return ad;
+      },(null as any),(null as any))),i0.ɵdid(16384,(null as any),0,i3.DefaultValueAccessor,
+      [i0.Renderer2,i0.ElementRef,[2,i3.COMPOSITION_BUFFER_MODE]],(null as any),(null as any)),
+      i0.ɵdid(212992,(null as any),0,i3.RadioControlValueAccessor,[i0.Renderer2,i0.ElementRef,
+          i3.ɵi,i0.Injector],{name:[0,'name'],value:[1,'value']},(null as any)),i0.ɵprd(1024,
+          (null as any),i3.NG_VALUE_ACCESSOR,(p0_0:any,p1_0:any) => {
+            return [p0_0,p1_0];
+          },[i3.DefaultValueAccessor,i3.RadioControlValueAccessor]),i0.ɵdid(671744,
+          (null as any),0,i3.NgModel,[[8,(null as any)],[8,(null as any)],[8,(null as any)],
+              [2,i3.NG_VALUE_ACCESSOR]],{name:[0,'name'],isDisabled:[1,'isDisabled'],
               model:[2,'model']},{update:'ngModelChange'}),i0.ɵprd(2048,(null as any),
           i3.NgControl,(null as any),[i3.NgModel]),i0.ɵdid(16384,(null as any),0,i3.NgControlStatus,
           [i3.NgControl],(null as any),(null as any))],(_ck,_v) => {
     var _co:any = _v.component;
-    const currVal_9:any = _co.index;
-    const currVal_10:any = (<any>_v.parent).context.$implicit;
-    _ck(_v,2,0,currVal_9,currVal_10);
-    const currVal_11:any = '';
-    _ck(_v,3,0,currVal_11);
-    const currVal_12:any = _co.index;
-    const currVal_13:any = _co.data.submitted;
-    const currVal_14:any = _co.data.input;
-    _ck(_v,6,0,currVal_12,currVal_13,currVal_14);
+    const currVal_8:any = _co.inputName(_co.data.answers,_co.index,(<any>_v.parent).context.index);
+    const currVal_9:any = (<any>_v.parent).context.$implicit.text;
+    _ck(_v,2,0,currVal_8,currVal_9);
+    const currVal_10:any = _co.inputName(_co.data.answers,_co.index,(<any>_v.parent).context.index);
+    const currVal_11:any = _co.data.submitted;
+    const currVal_12:any = _co.data.input;
+    _ck(_v,4,0,currVal_10,currVal_11,currVal_12);
   },(_ck,_v) => {
     var _co:any = _v.component;
-    const currVal_0:any = ((_co.index + '-') + (<any>_v.parent).context.index.toString());
-    const currVal_1:any = (i0.ɵnov(_v,3).required? '': (null as any));
-    const currVal_2:any = i0.ɵnov(_v,8).ngClassUntouched;
-    const currVal_3:any = i0.ɵnov(_v,8).ngClassTouched;
-    const currVal_4:any = i0.ɵnov(_v,8).ngClassPristine;
-    const currVal_5:any = i0.ɵnov(_v,8).ngClassDirty;
-    const currVal_6:any = i0.ɵnov(_v,8).ngClassValid;
-    const currVal_7:any = i0.ɵnov(_v,8).ngClassInvalid;
-    const currVal_8:any = i0.ɵnov(_v,8).ngClassPending;
+    const currVal_0:any = _co.inputId(_co.index,(<any>_v.parent).context.index);
+    const currVal_1:any = i0.ɵnov(_v,6).ngClassUntouched;
+    const currVal_2:any = i0.ɵnov(_v,6).ngClassTouched;
+    const currVal_3:any = i0.ɵnov(_v,6).ngClassPristine;
+    const currVal_4:any = i0.ɵnov(_v,6).ngClassDirty;
+    const currVal_5:any = i0.ɵnov(_v,6).ngClassValid;
+    const currVal_6:any = i0.ɵnov(_v,6).ngClassInvalid;
+    const currVal_7:any = i0.ɵnov(_v,6).ngClassPending;
     _ck(_v,0,0,currVal_0,currVal_1,currVal_2,currVal_3,currVal_4,currVal_5,currVal_6,
-        currVal_7,currVal_8);
+        currVal_7);
   });
 }
 function View_QuizQuestionOptions_3(_l:any):i0.ɵViewDefinition {
@@ -335,7 +435,6 @@ function View_QuizQuestionOptions_3(_l:any):i0.ɵViewDefinition {
           (null as any)]],[[(null as any),'ngModelChange'],[(null as any),'change'],
       [(null as any),'blur']],(_v,en,$event) => {
     var ad:boolean = true;
-    var _co:any = _v.component;
     if (('change' === en)) {
       const pd_0:any = ((<any>i0.ɵnov(_v,1).onChange($event.target.checked)) !== false);
       ad = (pd_0 && ad);
@@ -345,12 +444,12 @@ function View_QuizQuestionOptions_3(_l:any):i0.ɵViewDefinition {
       ad = (pd_1 && ad);
     }
     if (('ngModelChange' === en)) {
-      const pd_2:any = ((<any>(_co.data.input[(<any>_v.parent).context.index] = $event)) !== false);
+      const pd_2:any = ((<any>((<any>_v.parent).context.$implicit.checked = $event)) !== false);
       ad = (pd_2 && ad);
     }
     return ad;
   },(null as any),(null as any))),i0.ɵdid(16384,(null as any),0,i3.CheckboxControlValueAccessor,
-      [i0.Renderer,i0.ElementRef],(null as any),(null as any)),i0.ɵprd(1024,(null as any),
+      [i0.Renderer2,i0.ElementRef],(null as any),(null as any)),i0.ɵprd(1024,(null as any),
       i3.NG_VALUE_ACCESSOR,(p0_0:any) => {
         return [p0_0];
       },[i3.CheckboxControlValueAccessor]),i0.ɵdid(671744,(null as any),0,i3.NgModel,
@@ -360,14 +459,14 @@ function View_QuizQuestionOptions_3(_l:any):i0.ɵViewDefinition {
           (null as any),0,i3.NgControlStatus,[i3.NgControl],(null as any),(null as any))],
       (_ck,_v) => {
         var _co:any = _v.component;
-        const currVal_9:any = ((_co.index + '-') + (<any>_v.parent).context.index.toString());
+        const currVal_9:any = _co.inputName(_co.data.answers,_co.index,(<any>_v.parent).context.index);
         const currVal_10:any = _co.data.submitted;
-        const currVal_11:any = _co.data.input[(<any>_v.parent).context.index];
+        const currVal_11:any = (<any>_v.parent).context.$implicit.checked;
         _ck(_v,3,0,currVal_9,currVal_10,currVal_11);
       },(_ck,_v) => {
         var _co:any = _v.component;
-        const currVal_0:any = ((_co.index + '-') + (<any>_v.parent).context.index.toString());
-        const currVal_1:any = (<any>_v.parent).context.$implicit;
+        const currVal_0:any = _co.inputId(_co.index,(<any>_v.parent).context.index);
+        const currVal_1:any = (<any>_v.parent).context.$implicit.text;
         const currVal_2:any = i0.ɵnov(_v,5).ngClassUntouched;
         const currVal_3:any = i0.ɵnov(_v,5).ngClassTouched;
         const currVal_4:any = i0.ɵnov(_v,5).ngClassPristine;
@@ -392,23 +491,24 @@ function View_QuizQuestionOptions_1(_l:any):i0.ɵViewDefinition {
           (null as any),(null as any),3,'label',([] as any[]),[[1,'for',0]],(null as any),
           (null as any),(null as any),(null as any))),i0.ɵdid(278528,(null as any),
           0,i2.NgClass,[i0.IterableDiffers,i0.KeyValueDiffers,i0.ElementRef,i0.Renderer],
-          {ngClass:[0,'ngClass']},(null as any)),i0.ɵpod(['answer']),(_l()(),i0.ɵted((null as any),
-          ['',''])),(_l()(),i0.ɵted((null as any),['\n      ']))],(_ck,_v) => {
-    var _co:any = _v.component;
-    const currVal_0:any = (_co.data.type === 'radio');
-    _ck(_v,3,0,currVal_0);
-    const currVal_1:any = (_co.data.type === 'checkbox');
-    _ck(_v,6,0,currVal_1);
-    const currVal_3:any = _ck(_v,10,0,_co.isAnswer(_v.context.$implicit,_co.data.answer,
-        _co.data.submitted));
-    _ck(_v,9,0,currVal_3);
-  },(_ck,_v) => {
-    var _co:any = _v.component;
-    const currVal_2:any = ((_co.index + '-') + _v.context.index.toString());
-    _ck(_v,8,0,currVal_2);
-    const currVal_4:any = _v.context.$implicit;
-    _ck(_v,11,0,currVal_4);
-  });
+          {ngClass:[0,'ngClass']},(null as any)),i0.ɵpod({'answer':0}),(_l()(),i0.ɵted((null as any),
+          ['\n          ','\n        '])),(_l()(),i0.ɵted((null as any),['\n      ']))],
+      (_ck,_v) => {
+        var _co:any = _v.component;
+        const currVal_0:any = _co.isRadio(_co.data.answers);
+        _ck(_v,3,0,currVal_0);
+        const currVal_1:any = _co.isCheckbox(_co.data.answers);
+        _ck(_v,6,0,currVal_1);
+        const currVal_3:any = _ck(_v,10,0,_co.isAnswer(_v.context.$implicit.text,_co.data.answers,
+            _co.data.submitted));
+        _ck(_v,9,0,currVal_3);
+      },(_ck,_v) => {
+        var _co:any = _v.component;
+        const currVal_2:any = ((_co.index + '-') + _v.context.index.toString());
+        _ck(_v,8,0,currVal_2);
+        const currVal_4:any = _v.context.$implicit.text;
+        _ck(_v,11,0,currVal_4);
+      });
 }
 export function View_QuizQuestionOptions_0(_l:any):i0.ɵViewDefinition {
   return i0.ɵvid(0,[(_l()(),i0.ɵted((null as any),['\n    '])),(_l()(),i0.ɵeld(0,(null as any),
@@ -419,7 +519,7 @@ export function View_QuizQuestionOptions_0(_l:any):i0.ɵViewDefinition {
           i0.IterableDiffers],{ngForOf:[0,'ngForOf']},(null as any)),(_l()(),i0.ɵted((null as any),
           ['\n    '])),(_l()(),i0.ɵted((null as any),['\n  ']))],(_ck,_v) => {
     var _co:i1.QuizQuestionOptions = _v.component;
-    const currVal_0:any = _co.data.answerChoices;
+    const currVal_0:any = _co.data.answers;
     _ck(_v,4,0,currVal_0);
   },(null as any));
 }
@@ -434,4 +534,4 @@ export function View_QuizQuestionOptions_Host_0(_l:any):i0.ɵViewDefinition {
 export const QuizQuestionOptionsNgFactory:i0.ComponentFactory<i1.QuizQuestionOptions> = i0.ɵccf('question-options',
     i1.QuizQuestionOptions,View_QuizQuestionOptions_Host_0,{data:'data',index:'index'},
     {},([] as any[]));
-//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvbXVycGh5MTEvRG9jdW1lbnRzL3d3dy9uZy1lZHUvY29tcG9uZW50cy9xdWl6L3F1aXoubmdmYWN0b3J5LnRzIiwidmVyc2lvbiI6Mywic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsibmc6Ly8vQzovVXNlcnMvbXVycGh5MTEvRG9jdW1lbnRzL3d3dy9uZy1lZHUvY29tcG9uZW50cy9xdWl6L3F1aXoudHMiLCJuZzovLy9DOi9Vc2Vycy9tdXJwaHkxMS9Eb2N1bWVudHMvd3d3L25nLWVkdS9jb21wb25lbnRzL3F1aXovcXVpei50cy5RdWl6Lmh0bWwiLCJuZzovLy9DOi9Vc2Vycy9tdXJwaHkxMS9Eb2N1bWVudHMvd3d3L25nLWVkdS9jb21wb25lbnRzL3F1aXovcXVpei50cy5RdWl6X0hvc3QuaHRtbCIsIm5nOi8vL0M6L1VzZXJzL211cnBoeTExL0RvY3VtZW50cy93d3cvbmctZWR1L2NvbXBvbmVudHMvcXVpei9xdWl6LnRzLlF1aXpRdWVzdGlvbk9wdGlvbnMuaHRtbCIsIm5nOi8vL0M6L1VzZXJzL211cnBoeTExL0RvY3VtZW50cy93d3cvbmctZWR1L2NvbXBvbmVudHMvcXVpei9xdWl6LnRzLlF1aXpRdWVzdGlvbk9wdGlvbnNfSG9zdC5odG1sIl0sInNvdXJjZXNDb250ZW50IjpbIiAiLCJcbiAgICA8Zm9ybSBjbGFzcz1cInB1cmUtZm9ybSBxdWl6XCIgKG5nU3VibWl0KT1cInN1Ym1pdFF1aXooKVwiICNmPVwibmdGb3JtXCI+XG4gICAgICA8ZmllbGRzZXQgKm5nRm9yPVwibGV0IHNldCBvZiBkYXRhLnNldHM7IGxldCBzID0gaW5kZXg7XCI+XG4gICAgICAgIDxsZWdlbmQ+e3tzZXQuaW50cm99fTwvbGVnZW5kPlxuICAgICAgICA8ZGl2IGNsYXNzPVwicXVlc3Rpb25cIiBbbmdDbGFzc109XCJ7J3N1Ym1pdHRlZCc6IHF1ZXN0aW9uLnN1Ym1pdHRlZH1cIiAqbmdGb3I9XCJsZXQgcXVlc3Rpb24gb2Ygc2V0LnF1ZXN0aW9uczsgbGV0IHEgPSBpbmRleDtcIj5cbiAgICAgICAgICA8cCBjbGFzcz1cInEtY291bnRlclwiPlxuICAgICAgICAgICAgPHNwYW4gY2xhc3M9XCJxLWdyYWRlXCIgKm5nSWY9XCJxdWVzdGlvbi5zdWJtaXR0ZWRcIj5cbiAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9XCJmYSBmYS1jaGVjayBjb3JyZWN0IGFuaW1hdGVkIHRhZGFcIiAqbmdJZj1cInF1ZXN0aW9uLmNvcnJlY3RcIj48L3NwYW4+XG4gICAgICAgICAgICAgIDxzcGFuIGNsYXNzPVwiZmEgZmEtY2xvc2UgaW5jb3JyZWN0IGFuaW1hdGVkIHdvYmJsZVwiICpuZ0lmPVwiIXF1ZXN0aW9uLmNvcnJlY3RcIj48L3NwYW4+XG4gICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgICA8c3Bhbj57e3EgKyAxfX0uPC9zcGFuPlxuICAgICAgICAgIDwvcD5cbiAgICAgICAgICA8ZGl2IGNsYXNzPVwicS1ib2R5XCI+XG4gICAgICAgICAgICA8cCBjbGFzcz1cInEtaW50cm9cIj5cbiAgICAgICAgICAgICAge3txdWVzdGlvbi5xdWVzdGlvbn19XG4gICAgICAgICAgICA8L3A+XG4gICAgICAgICAgICA8cXVlc3Rpb24tb3B0aW9ucyAqbmdJZj1cInF1ZXN0aW9uLmFuc3dlckNob2ljZXNcIiBbZGF0YV09XCJxdWVzdGlvblwiIFtpbmRleF09XCJzLnRvU3RyaW5nKCkgKyAnLScgKyBxLnRvU3RyaW5nKClcIj48L3F1ZXN0aW9uLW9wdGlvbnM+XG4gICAgICAgICAgICA8cCBjbGFzcz1cImZlZWRiYWNrXCIgKm5nSWY9XCJxdWVzdGlvbi5mZWVkYmFja1wiPlxuICAgICAgICAgICAgICA8c3BhbiAqbmdJZj1cInF1ZXN0aW9uLnN1Ym1pdHRlZFwiPjxzdHJvbmc+RmVlZGJhY2s6PC9zdHJvbmc+IDxlbT57e3F1ZXN0aW9uLmZlZWRiYWNrfX08L2VtPjwvc3Bhbj5cbiAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2ZpZWxkc2V0PlxuICAgICAgPGJ1dHRvbiBjbGFzcz1cInB1cmUtYnV0dG9uXCIgdHlwZT1cInN1Ym1pdFwiICpuZ0lmPVwiIWRhdGEuaW5wdXREaXNhYmxlZFwiPlN1Ym1pdDwvYnV0dG9uPlxuICAgIDwvZm9ybT5cbiAgICA8YnV0dG9uIGNsYXNzPVwicHVyZS1idXR0b25cIiAqbmdJZj1cImRhdGEuaW5wdXREaXNhYmxlZFwiIChjbGljayk9XCJyZWxvYWQoKVwiPlJldHJ5PC9idXR0b24+XG4gICAgPHAgKm5nSWY9XCJkYXRhLmlucHV0RGlzYWJsZWRcIj5cbiAgICAgIHt7ZGF0YS5mZWVkYmFja319IFlvdSBnb3Qge3tkYXRhLm51bWJlckNvcnJlY3R9fSBjb3JyZWN0LlxuICAgIDwvcD5cbiAgIiwiPG9lLXF1aXo+PC9vZS1xdWl6PiIsIlxuICAgIDx1bD5cbiAgICAgIDxsaSAqbmdGb3I9XCJsZXQgb3B0aW9uIG9mIGRhdGEuYW5zd2VyQ2hvaWNlczsgbGV0IG8gPSBpbmRleFwiPlxuICAgICAgICA8aW5wdXQgKm5nSWY9XCJkYXRhLnR5cGUgPT09ICdyYWRpbydcIiBbaWRdPVwiaW5kZXggKyAnLScgKyBvLnRvU3RyaW5nKClcIiBbbmFtZV09XCJpbmRleFwiIHR5cGU9XCJyYWRpb1wiIFsobmdNb2RlbCldPVwiZGF0YS5pbnB1dFwiIFt2YWx1ZV09XCJvcHRpb25cIiBbZGlzYWJsZWRdPVwiZGF0YS5zdWJtaXR0ZWRcIiByZXF1aXJlZD5cbiAgICAgICAgPGlucHV0ICpuZ0lmPVwiZGF0YS50eXBlID09PSAnY2hlY2tib3gnXCIgW2lkXT1cImluZGV4ICsgJy0nICsgby50b1N0cmluZygpXCIgW25hbWVdPVwiaW5kZXggKyAnLScgKyBvLnRvU3RyaW5nKClcIiB0eXBlPVwiY2hlY2tib3hcIiBbKG5nTW9kZWwpXT1cImRhdGEuaW5wdXRbb11cIiBbdmFsdWVdPVwib3B0aW9uXCIgW2Rpc2FibGVkXT1cImRhdGEuc3VibWl0dGVkXCI+XG4gICAgICAgIDxsYWJlbCBbbmdDbGFzc109XCJ7J2Fuc3dlcic6IGlzQW5zd2VyKG9wdGlvbiwgZGF0YS5hbnN3ZXIsIGRhdGEuc3VibWl0dGVkKX1cIiBbYXR0ci5mb3JdPVwiaW5kZXggKyAnLScgKyBvLnRvU3RyaW5nKClcIj57e29wdGlvbn19PC9sYWJlbD5cbiAgICAgIDwvbGk+XG4gICAgPC91bD5cbiAgIiwiPHF1ZXN0aW9uLW9wdGlvbnM+PC9xdWVzdGlvbi1vcHRpb25zPiJdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7b0JDT2M7TUFBQTtNQUFBOzs7b0JBQ0E7TUFBQTtNQUFBOzs7b0JBRkY7TUFBQTtNQUFpRCxxREFDL0M7VUFBQSxpRUFBQTtVQUFBO1VBQUEsZUFBZ0YscURBQ2hGO2lCQUFBO2FBQUE7VUFBQSx3QkFBcUY7O1FBRHJDO1FBQWhELFdBQWdELFNBQWhEO1FBQ29EO1FBQXBELFdBQW9ELFNBQXBEOzs7O29CQVFGO01BQUE7b0NBQUEsVUFBQTtNQUFBO0lBQWlEO0lBQWtCO0lBQW5FLFdBQWlELFVBQWtCLFNBQW5FOzs7O29CQUVFO01BQUEsd0VBQWlDO2FBQUE7VUFBQSwwREFBUTtNQUFBLGdCQUFrQixzQ0FBQztNQUFBO01BQUEsOEJBQUk7O1FBQUE7UUFBQTs7OztvQkFEbEU7TUFBQTtNQUE4QyxxREFDNUM7VUFBQSxpRUFBQTtVQUFBO1VBQUEsZUFBaUc7O0lBQTNGO0lBQU4sV0FBTSxTQUFOOzs7O29CQWROO01BQUE7YUFBQTttQ0FBQTthQUFzQixnQkFBcUcsaURBQ3pIO2lCQUFBO2NBQUEsMERBQXFCO1VBQUEscUJBQ25CO1VBQUEscUNBQUE7d0JBQUEsbUNBR087VUFBQSxxQkFDUDtVQUFBO01BQU0seUNBQWlCO01BQ3JCLGlEQUNKO1VBQUE7VUFBQSw0Q0FBb0I7VUFBQSxxQkFDbEI7VUFBQTtVQUFBLGdCQUFtQjtNQUVmLG1EQUNKO1VBQUEsaUVBQUE7VUFBQTtVQUFBLGVBQWtJLG1EQUNsSTtpQkFBQTthQUFBO1VBQUEsd0JBRUk7TUFDQTtJQWhCSDtJQUFpQjtJQUF0QixXQUFL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
+//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiRDovSk0vRG9jdW1lbnRzL3d3dy9uZy1lZHUvY29tcG9uZW50cy9xdWl6L3F1aXoubmdmYWN0b3J5LnRzIiwidmVyc2lvbiI6Mywic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsibmc6Ly8vRDovSk0vRG9jdW1lbnRzL3d3dy9uZy1lZHUvY29tcG9uZW50cy9xdWl6L3F1aXoudHMiLCJuZzovLy9EOi9KTS9Eb2N1bWVudHMvd3d3L25nLWVkdS9jb21wb25lbnRzL3F1aXovcXVpei50cy5RdWl6Lmh0bWwiLCJuZzovLy9EOi9KTS9Eb2N1bWVudHMvd3d3L25nLWVkdS9jb21wb25lbnRzL3F1aXovcXVpei50cy5RdWl6X0hvc3QuaHRtbCIsIm5nOi8vL0Q6L0pNL0RvY3VtZW50cy93d3cvbmctZWR1L2NvbXBvbmVudHMvcXVpei9xdWl6LnRzLlF1aXpRdWVzdGlvbk9wdGlvbnMuaHRtbCIsIm5nOi8vL0Q6L0pNL0RvY3VtZW50cy93d3cvbmctZWR1L2NvbXBvbmVudHMvcXVpei9xdWl6LnRzLlF1aXpRdWVzdGlvbk9wdGlvbnNfSG9zdC5odG1sIl0sInNvdXJjZXNDb250ZW50IjpbIiAiLCJcbiAgICA8ZGl2IGNsYXNzPVwib2UtcXVpei13cmFwcGVyXCIgW25nQ2xhc3NdPVwieydmaW5pc2hlZCc6IGlzU2V0QnlTZXRGaW5pc2hlZCgpfVwiPlxuICAgICAgPG5hdj5cbiAgICAgICAgPGJ1dHRvbiBjbGFzcz1cInB1cmUtYnV0dG9uIG9lLXF1aXotdGFiXCIgKm5nRm9yPVwibGV0IHRhYiBvZiB0YWJzOyBsZXQgdCA9IGluZGV4O1wiIFtuZ0NsYXNzXT1cInsnYWN0aXZlJzogdGFiLmFjdGl2ZX1cIiAoY2xpY2spPVwic2V0QWN0aXZlVGFiKHQpXCI+e3t0YWIubmFtZX19PC9idXR0b24+XG4gICAgICA8L25hdj5cbiAgICAgIDxzZWN0aW9uIGNsYXNzPVwidGFiLWJvZHlcIiBbbmdDbGFzc109XCJ7J2FjdGl2ZSc6IGlzQWN0aXZlVGFiKDEpfVwiPlxuICAgICAgICA8Zm9ybSBjbGFzcz1cInB1cmUtZm9ybSBxdWl6XCIgKG5nU3VibWl0KT1cInN1Ym1pdFF1aXooKVwiICNmPVwibmdGb3JtXCI+XG4gICAgICAgICAgPG5nLWNvbnRhaW5lciAqbmdGb3I9XCJsZXQgc2V0IG9mIGRhdGEuc2V0czsgbGV0IHMgPSBpbmRleDtcIj5cbiAgICAgICAgICAgIDxmaWVsZHNldCAqbmdJZj1cImlzU2V0QWN0aXZlKHMpXCI+XG4gICAgICAgICAgICAgIDxsZWdlbmQ+e3tzZXQuaW50cm99fTwvbGVnZW5kPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzPVwicXVlc3Rpb25cIiBbbmdDbGFzc109XCJ7J3N1Ym1pdHRlZCc6IHF1ZXN0aW9uLnN1Ym1pdHRlZH1cIiAqbmdGb3I9XCJsZXQgcXVlc3Rpb24gb2Ygc2V0LnF1ZXN0aW9uczsgbGV0IHEgPSBpbmRleDtcIj5cbiAgICAgICAgICAgICAgICA8cCBjbGFzcz1cInEtY291bnRlclwiPlxuICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9XCJxLWdyYWRlXCIgKm5nSWY9XCJxdWVzdGlvbi5zdWJtaXR0ZWRcIj5cbiAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9XCJmYSBmYS1jaGVjayBjb3JyZWN0IGFuaW1hdGVkIHRhZGFcIiAqbmdJZj1cInF1ZXN0aW9uLmNvcnJlY3RcIj48L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzPVwiZmEgZmEtY2xvc2UgaW5jb3JyZWN0IGFuaW1hdGVkIHdvYmJsZVwiICpuZ0lmPVwiIXF1ZXN0aW9uLmNvcnJlY3RcIj48L3NwYW4+XG4gICAgICAgICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgICAgICAgICA8c3Bhbj57e3EgKyAxfX0uPC9zcGFuPlxuICAgICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPVwicS1ib2R5XCI+XG4gICAgICAgICAgICAgICAgICA8cCBjbGFzcz1cInEtaW50cm9cIj5cbiAgICAgICAgICAgICAgICAgICAge3txdWVzdGlvbi5xdWVzdGlvbn19XG4gICAgICAgICAgICAgICAgICA8L3A+XG4gICAgICAgICAgICAgICAgICA8cXVlc3Rpb24tb3B0aW9ucyAqbmdJZj1cInF1ZXN0aW9uLmFuc3dlcnNcIiBbZGF0YV09XCJxdWVzdGlvblwiIFtpbmRleF09XCJzLnRvU3RyaW5nKCkgKyAnLScgKyBxLnRvU3RyaW5nKClcIj48L3F1ZXN0aW9uLW9wdGlvbnM+XG4gICAgICAgICAgICAgICAgICA8cCBjbGFzcz1cImZlZWRiYWNrXCIgKm5nSWY9XCJxdWVzdGlvbi5mZWVkYmFja1wiPlxuICAgICAgICAgICAgICAgICAgICA8c3BhbiAqbmdJZj1cInF1ZXN0aW9uLnN1Ym1pdHRlZFwiPjxzdHJvbmc+RmVlZGJhY2s6PC9zdHJvbmc+IDxlbT57e3F1ZXN0aW9uLmZlZWRiYWNrfX08L2VtPjwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8L2ZpZWxkc2V0PlxuICAgICAgICAgIDwvbmctY29udGFpbmVyPlxuICAgICAgICAgIDxuYXYgKm5nSWY9XCJpc05vdE9uTGFzdFNldCgpXCI+XG4gICAgICAgICAgICA8YnV0dG9uIGNsYXNzPVwicHVyZS1idXR0b25cIiB0eXBlPVwiYnV0dG9uXCIgKGNsaWNrKT1cImNoYW5nZUFjdGl2ZSgnbmV4dCcpXCI+TmV4dDwvYnV0dG9uPlxuICAgICAgICAgIDwvbmF2PlxuICAgICAgICAgIDxwICpuZ0lmPVwiaXNSZWFkeUZvclN1Ym1pc3Npb24oKVwiPlxuICAgICAgICAgICAgPGJ1dHRvbiBjbGFzcz1cInB1cmUtYnV0dG9uXCIgdHlwZT1cInN1Ym1pdFwiICpuZ0lmPVwiIWRhdGEuaW5wdXREaXNhYmxlZFwiPlN1Ym1pdDwvYnV0dG9uPlxuICAgICAgICAgIDwvcD5cbiAgICAgICAgPC9mb3JtPlxuICAgICAgPC9zZWN0aW9uPlxuICAgICAgPHNlY3Rpb24gY2xhc3M9XCJ0YWItYm9keVwiIFtuZ0NsYXNzXT1cInsnYWN0aXZlJzogaXNBY3RpdmVUYWIoMCl9XCI+XG4gICAgICAgIDxwICpuZ0lmPVwiZGF0YS5pbnB1dERpc2FibGVkXCI+XG4gICAgICAgICAge3tkYXRhLmZlZWRiYWNrfX0gWW91IGdvdCB7e2RhdGEubnVtYmVyQ29ycmVjdH19IGNvcnJlY3QuXG4gICAgICAgIDwvcD5cbiAgICAgICAgPHA+XG4gICAgICAgICAgPGJ1dHRvbiB0eXBlPVwiYnV0dG9uXCIgY2xhc3M9XCJwdXJlLWJ1dHRvblwiICpuZ0lmPVwiZGF0YS5pbnB1dERpc2FibGVkXCIgKGNsaWNrKT1cInJlbG9hZCgpXCI+UmV0cnk8L2J1dHRvbj5cbiAgICAgICAgPC9wPlxuICAgICAgPC9zZWN0aW9uPlxuICAgIDwvZGl2PlxuICAiLCI8b2UtcXVpej48L29lLXF1aXo+IiwiXG4gICAgPHVsPlxuICAgICAgPGxpICpuZ0Zvcj1cImxldCBvcHRpb24gb2YgZGF0YS5hbnN3ZXJzOyBsZXQgbyA9IGluZGV4XCI+XG4gICAgICAgIDxpbnB1dFxuICAgICAgICAgICpuZ0lmPVwiaXNSYWRpbyhkYXRhLmFuc3dlcnMpXCJcbiAgICAgICAgICB0eXBlPVwicmFkaW9cIlxuICAgICAgICAgIFtpZF09XCJpbnB1dElkKGluZGV4LCBvKVwiXG4gICAgICAgICAgW25hbWVdPVwiaW5wdXROYW1lKGRhdGEuYW5zd2VycywgaW5kZXgsIG8pXCJcbiAgICAgICAgICBbKG5nTW9kZWwpXT1cImRhdGEuaW5wdXRcIlxuICAgICAgICAgIFt2YWx1ZV09XCJvcHRpb24udGV4dFwiXG4gICAgICAgICAgW2Rpc2FibGVkXT1cImRhdGEuc3VibWl0dGVkXCJcbiAgICAgICAgPlxuICAgICAgICA8aW5wdXRcbiAgICAgICAgICAqbmdJZj1cImlzQ2hlY2tib3goZGF0YS5hbnN3ZXJzKVwiXG4gICAgICAgICAgdHlwZT1cImNoZWNrYm94XCJcbiAgICAgICAgICBbaWRdPVwiaW5wdXRJZChpbmRleCwgbylcIlxuICAgICAgICAgIFtuYW1lXT1cImlucHV0TmFtZShkYXRhLmFuc3dlcnMsIGluZGV4LCBvKVwiXG4gICAgICAgICAgWyhuZ01vZGVsKV09XCJvcHRpb24uY2hlY2tlZFwiXG4gICAgICAgICAgW3ZhbHVlXT1cIm9wdGlvbi50ZXh0XCJcbiAgICAgICAgICBbZGlzYWJsZWRdPVwiZGF0YS5zdWJtaXR0ZWRcIlxuICAgICAgICA+XG4gICAgICAgIDxsYWJlbFxuICAgICAgICAgIFtuZ0NsYXNzXT1cInsnYW5zd2VyJzogaXNBbnN3ZXIob3B0aW9uLnRleHQsIGRhdGEuYW5zd2VycywgZGF0YS5zdWJtaXR0ZWQpfVwiXG4gICAgICAgICAgW2F0dHIuZm9yXT1cImluZGV4ICsgJy0nICsgby50b1N0cmluZygpXCJcbiAgICAgICAgPlxuICAgICAgICAgIHt7b3B0aW9uLnRleHR9fVxuICAgICAgICA8L2xhYmVsPlxuICAgICAgPC9saT5cbiAgICA8L3VsPlxuICAiLCI8cXVlc3Rpb24tb3B0aW9ucz48L3F1ZXN0aW9uLW9wdGlvbnM+Il0sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztvQkNHUTtNQUFBO0lBQUE7SUFBQTtJQUFvSDtNQUFBO01BQUE7SUFBQTtJQUFwSDtFQUFBLHVDQUFBO2tEQUFBO01BQUEsa0NBQWlGLGVBQTZEO01BQUE7SUFBdEk7SUFBeUU7SUFBakYsV0FBUSxVQUF5RSxTQUFqRjs7SUFBOEk7SUFBQTs7OztvQkFVbEk7TUFBQTtNQUFBOzs7b0JBQ0E7TUFBQTtNQUFBOzs7b0JBRkY7TUFBQTtNQUFpRCwyREFDL0M7VUFBQSxpRUFBQTtVQUFBO1VBQUEsZUFBZ0Y7TUFDaEY7YUFBQTtVQUFBLHdCQUFxRjs7UUFEckM7UUFBaEQsV0FBZ0QsU0FBaEQ7UUFDb0Q7UUFBcEQsV0FBb0QsU0FBcEQ7Ozs7b0JBUUY7TUFBQTtvQ0FBQSxVQUFBO01BQUE7SUFBMkM7SUFBa0I7SUFBN0QsV0FBMkMsVUFBa0IsU0FBN0Q7Ozs7b0JBRUU7TUFBQSx3RUFBaUM7YUFB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
