@@ -1,6 +1,6 @@
 {
 	"name": "ng2-edu",
-	"version": "0.10.0",
+	"version": "0.10.1",
 	"description": "A library of Angular 2 components for use in online education applications/interactives/digital learning objects.",
 	"main": "bundles/ng2-edu.umd.min.js",
 	"module": "index.js",
