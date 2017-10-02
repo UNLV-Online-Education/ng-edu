@@ -2,7 +2,7 @@
 
 
 # ng-edu
-Ng-edu is a library of Angular 2 components for use in online education applications/interactives/digital learning objects.
+ng-edu is a library of Angular 2 components for use in online education applications/interactives/digital learning objects.
 
 Component styles are minimal and easily customizable with CSS.
 
@@ -13,8 +13,11 @@ npm install ng2-edu --save
 ```
 
 ## Basic Usage
-Components are configured as Angular modules.  Once you have installed the library, modules can be imported from 'ng2-edu' shorthand in your application code:
+Components are configured as Angular modules.  Once you have installed the library, modules can be imported from 'ng2-edu' shorthand in your application code.  For example, if you are using Angular CLI and you want to use the Quiz and Layer Toggle modules, you would put this in your app.module.ts:
 
 ```
 import { QuizModule, LayerToggleModule } from 'ng2-edu';
 ```
+
+## Full Documention
+[GitHub Wiki](https://github.com/UNLV-Online-Education/ng2-edu/wiki)
