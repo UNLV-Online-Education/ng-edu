@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { QuizModule } from '../quiz/quiz';
 
 @Component({
-  selector: 'oe-interactive-text',
+  selector: 'edu-interactive-text',
   template: `
     <p class="paragraph" *ngFor="let paragraph of data.paragraphs">
       <span class="exercise" *ngFor="let exercise of paragraph.exercises">
@@ -16,7 +16,7 @@ import { QuizModule } from '../quiz/quiz';
                 </div>
               </button>
             </nav>
-            <oe-quiz [data]="exercise.oeQuiz" *ngIf="exercise?.oeQuiz" (completed)="completedEvent($event, exercise)"></oe-quiz>
+            <oe-quiz [data]="exercise.eduQuiz" *ngIf="exercise?.eduQuiz" (completed)="completedEvent($event, exercise)"></oe-quiz>
           </span></span><span class="after-clickable" [innerHtml]="exercise.after" *ngIf="exercise.after"></span>
       </span>
     </p>
@@ -152,7 +152,7 @@ export class InteractiveText implements OnInit {
 
   clickable(exercise: any) {
     this.closeAllPrompts();
-    if (exercise.oeQuiz) {
+    if (exercise.eduQuiz) {
       exercise.showChoices = true;
     } else {
       exercise.completed = true;

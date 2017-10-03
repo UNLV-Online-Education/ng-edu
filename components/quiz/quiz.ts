@@ -285,6 +285,7 @@ export class Quiz implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.data.numberCorrect = 0;
     if (this.data.setBySet) {
       this.setActive(this.index);
     }
