@@ -51,7 +51,7 @@ import { FormsModule } from '@angular/forms';
           [disabled]="data.submitted"
         >
         <label
-          [ngClass]="{'answer': isAnswer(option.text, data.answers, data.submitted)}"
+          [ngClass]="{'answer': isAnswer(option)}"
           [attr.for]="index + '-' + o.toString()"
         >
           {{option.text}}
@@ -97,8 +97,13 @@ export class QuizQuestionOptions implements OnInit {
     }
   }
 
-  isAnswer(option: any, answers: any, questionSubmitted: any) {
-    return this.markIfAnswer(option, answers, questionSubmitted);
+  isAnswer(option: any) {
+    if (this.data.submitted) {
+      if (option.correct) {
+        return true;
+      }
+      return false;
+    }
   }
 
   isCheckbox(answers: any) {
@@ -110,18 +115,6 @@ export class QuizQuestionOptions implements OnInit {
   isRadio(answers: any) {
     if (this.inputType(answers) === 'radio') {
       return true;
-    }
-  }
-
-  markIfAnswer(option: any, answers: any, questionSubmitted: any) {
-    if (questionSubmitted) {
-      var optionIsAnswer = false;
-      answers.forEach(function(answer: any) {
-        if (option === answer) {
-          optionIsAnswer = true;
-        }
-      });
-      return optionIsAnswer;
     }
   }
 
