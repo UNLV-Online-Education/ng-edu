@@ -1,9 +1,10 @@
 import { NgModule, Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'oe-poi-modal',
+  selector: 'edu-poi-modal',
   template: `
     <div class="poi-modal-overlay" (click)="closeModal()"></div>
     <div class="poi-modal-outer">
@@ -11,13 +12,13 @@ import { Router } from '@angular/router';
         <button class="close" (click)="closeModal()"><span>+</span></button>
         <h4 *ngIf="modalData.label">{{modalData.label}}</h4>
         <p>
-          <img [src]="modalData.imagePath" *ngIf="modalData.imagePath">
+          <img [src]="modalData.imageUrl" *ngIf="modalData.imageUrl">
         </p>
-        <!-- <p class="embed-container "*ngIf="modalData.embedPath">
-          <iframe width="560" height="315" [src]="modalData.embedPath" frameborder="0" allowfullscreen></iframe>
-        </p> -->
-        <p *ngIf="modalData.copy">
-          {{modalData.copy}}
+        <p class="embed-container "*ngIf="modalData.embedUrl">
+          <iframe width="560" height="315" [src]="iframeUrl(modalData.embedUrl)" frameborder="0" allowfullscreen></iframe>
+        </p>
+        <p *ngIf="modalData.text">
+          {{modalData.text}}
         </p>
       </div>
     </div>
@@ -32,7 +33,8 @@ import { Router } from '@angular/router';
     	left: 0;
     	background: rgba(0,0,0,.5);
     	z-index: 999;
-    }
+		}
+		
     div.poi-modal-outer {
     	width: 85%;
     	min-height: 50%;
@@ -47,11 +49,13 @@ import { Router } from '@angular/router';
     	background: #fff;
     	z-index: 999;
     	overflow-y: auto;
-    }
+		}
+		
     div.poi-modal-inner {
     	padding: .5rem 5%;
     	z-index: 999;
-    }
+		}
+		
     	div.poi-modal-inner button.close {
     		position: absolute;
     		top: 0;
@@ -63,24 +67,28 @@ import { Router } from '@angular/router';
     		background-color: #F44336;
     		color: #fff;
     		font-size: 1.5rem;
-    	}
+			}
+			
     	div.poi-modal-inner button.close:hover {
     		background-image: -webkit-linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
     		background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
-    	}
+			}
+			
     		div.poi-modal-inner button.close span {
     			display: inline-block;
     			-ms-transform: rotate(45deg);
     			-webkit-transform: rotate(45deg);
     		  transform: rotate(45deg);
-    		}
+				}
+				
     		div.poi-modal-inner .embed-container {
     			position: relative;
     	    padding-bottom: 56.25%;
     	    padding-top: 35px;
     	    height: 0;
     	    overflow: hidden;
-    		}
+				}
+				
     			div.poi-modal-inner .embed-container iframe {
     				position: absolute;
     		    top:0;
@@ -95,53 +103,61 @@ export class PoiModal implements OnInit {
   @Input() modalData: any;
 
   @Output() modalChange = new EventEmitter();
+	
+	modalActive: boolean;
 
   constructor(
+		public sanitizer: DomSanitizer
   ) {}
 
   ngOnInit() {
   }
 
-  modalActive:boolean;
-
   closeModal() {
     this.modalActive = false;
     this.modalChange.emit({
       value: this.modalActive
-    })
+    });
+	}
+	
+	iframeUrl(url: string) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
 }
 
 @Component({
-  selector: 'oe-poi',
+  selector: 'edu-poi',
   template: `
-  <section class="poi-row">
-    <div class="poi-wrapper">
-      <img class="background" [src]="poiData.backgroundPath">
-      <div class="point" *ngFor="let point of poiData.points; let i = index" [style.top.%]="point.top" [style.left.%]="point.left" (click)="pointClick(point, i)">
-        <span class="pulse"></span>
-        <button></button>
-        <span class="label" *ngIf="point.label">{{point.label}}</span>
-      </div>
-      <oe-poi-modal *ngIf="poiModal" [modalData]="poiModalData" (modalChange)="modalChange($event);"></oe-poi-modal>
-    </div>
-  </section>
+		<section class="poi-row">
+			<div class="poi-wrapper">
+				<img class="background" [src]="poiData.backgroundUrl">
+				<div class="point" *ngFor="let point of poiData.points; let i = index" [style.top.%]="point.top" [style.left.%]="point.left" (click)="pointClick(point)">
+					<span class="pulse"></span>
+					<button></button>
+					<span class="label" *ngIf="point.label">{{point.label}}</span>
+				</div>
+				<edu-poi-modal *ngIf="poiModal" [modalData]="poiModalData" (modalChange)="modalChange($event);"></edu-poi-modal>
+			</div>
+		</section>
   `,
   styles: [`
     section.poi-row {
       display: block;
       text-align: center;
-    }
+		}
+		
     div.poi-wrapper {
       position: relative;
       display: inline-block;
       text-align: left;
       vertical-align:top;
-    }
+		}
+		
       div.poi-wrapper img.background {
         display: block;
-      }
+			}
+			
       @-webkit-keyframes pulse {
       	0% {
       		-webkit-transform: scale(1);
@@ -163,7 +179,8 @@ export class PoiModal implements OnInit {
       		-webkit-transform: scale(2.6);
       		opacity: 0.0;
       	}
-      }
+			}
+			
       @keyframes pulse {
       	0% {
       		transform: scale(1);
@@ -185,14 +202,16 @@ export class PoiModal implements OnInit {
       		transform: scale(2.6);
       		opacity: 0.0;
       	}
-      }
+			}
+			
       div.point {
       	position: absolute;
         line-height: 0;
         -ms-transform: translate(-50%, -50%);
       	-webkit-transform: translate(-50%, -50%);
       	transform: translate(-50%, -50%);
-      }
+			}
+			
         div.point span.pulse {
         	background: transparent;
         	position: absolute;
@@ -210,7 +229,8 @@ export class PoiModal implements OnInit {
         	animation: pulse 1.6s ease-out;
         	-webkit-animation-iteration-count: infinite;
         	animation-iteration-count: infinite;
-        }
+				}
+				
         div.point button {
         	position: relative;
         	height: 1rem;
@@ -223,14 +243,17 @@ export class PoiModal implements OnInit {
         	border: 0;
         	border: 3px solid #F9D423;
         	z-index: 4;
-        }
+				}
+				
         div.point button {
         	display: inline;
-        }
+				}
+				
         div.point button:hover,
         div.point button:focus  {
         	background-color: #FFC107;
-        }
+				}
+				
         div.point button + span.label {
         	display: none;
           line-height: 1.5;
@@ -246,7 +269,8 @@ export class PoiModal implements OnInit {
           -ms-transform: translate(-50%, -150%);
         	-webkit-transform: translate(-50%, -150%);
         	transform: translate(-50%, -150%);
-        }
+				}
+				
         div.point button + span.label:after {
         	content:"";
           position: absolute;
@@ -260,56 +284,53 @@ export class PoiModal implements OnInit {
           -ms-transform: translate(-50%, 100%);
         	-webkit-transform: translate(-50%, 100%);
         	transform: translate(-50%, 100%);
-        }
+				}
+				
         div.point button:hover + span.label,
-        div.point button:focus + span.label,
-        div.point button + span.label:hover {
+        div.point button:focus + span.label {
         	display: block;
-        }
-    oe-poi-modal {
+				}
+				
+    edu-poi-modal {
       position: absolute;
       top: 0;
       right: 0;
       bottom: 0;
       left: 0;
       z-index: 999;
-    }
+		}
+		
   `]
 })
 export class Poi implements OnInit {
 
   @Input() data: any;
 
-  public sub: any;
-
-  public poiData: any;
+	poiData: any;
+	
+	poiModal: boolean = false;
+	
+	poiModalData: any;
 
   constructor(
     public router: Router
   ) {}
 
   ngOnInit() {
-    this.poiData = this.data;
+		this.poiData = this.data;
   }
 
-  modalChange(event:any) {
+  modalChange(event: any ) {
     this.poiModal = event.value;
   }
 
-  poiModal: boolean = false;
-
-  poiModalData: any;
-
-  pointClick(data:any, index:any) {
+  pointClick(point: any) {
     this.poiModal = false;
-    if (data.route) {
-      this.router.navigate([data.route]);
-      // var newParam = Object.keys(this.currentParams).length;
-      // this.currentParams[newParam] = index;
-      // this.router.navigate([""], { queryParams: this.currentParams });
+    if (point.route) {
+      this.router.navigate([point.route]);
     } else {
       this.poiModal = true;
-      this.poiModalData = data;
+      this.poiModalData = point;
     }
   }
 
