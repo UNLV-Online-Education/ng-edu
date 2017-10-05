@@ -1,344 +1,480 @@
 import { NgModule, Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'edu-poi-modal',
-  template: `
-    <div class="poi-modal-overlay" (click)="closeModal()"></div>
-    <div class="poi-modal-outer">
-      <div class="poi-modal-inner">
-        <button class="close" (click)="closeModal()"><span>+</span></button>
-        <h4 *ngIf="modalData.label">{{modalData.label}}</h4>
-        <p>
-          <img [src]="modalData.imageUrl" *ngIf="modalData.imageUrl">
-        </p>
-        <p class="embed-container "*ngIf="modalData.embedUrl">
-          <iframe width="560" height="315" [src]="iframeUrl(modalData.embedUrl)" frameborder="0" allowfullscreen></iframe>
-        </p>
-        <p *ngIf="modalData.text">
-          {{modalData.text}}
-        </p>
-      </div>
-    </div>
-  `,
+  selector: 'question-options',
   styles: [`
-    div.poi-modal-overlay {
-    	cursor: pointer;
-    	position: absolute;
-    	top: 0;
-    	right: 0;
-    	bottom: 0;
-    	left: 0;
-    	background: rgba(0,0,0,.5);
-    	z-index: 999;
-		}
-		
-    div.poi-modal-outer {
-    	width: 85%;
-    	min-height: 50%;
-    	max-height: 85%;
-    	max-width: 80rem;
-    	position: absolute;
-    	-ms-transform: translate(-50%,-50%);
-    	-webkit-transform: translate(-50%,-50%);
-    	transform: translate(-50%,-50%);
-    	top: 50%;
-    	left: 50%;
-    	background: #fff;
-    	z-index: 999;
-    	overflow-y: auto;
-		}
-		
-    div.poi-modal-inner {
-    	padding: .5rem 5%;
-    	z-index: 999;
-		}
-		
-    	div.poi-modal-inner button.close {
-    		position: absolute;
-    		top: 0;
-    		right: .25rem;
-    		line-height: 1;
-    		border: 0;
-    		outline: 0;
-    		padding: 0 .75rem;
-    		background-color: #F44336;
-    		color: #fff;
-    		font-size: 1.5rem;
-			}
-			
-    	div.poi-modal-inner button.close:hover {
-    		background-image: -webkit-linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
-    		background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
-			}
-			
-    		div.poi-modal-inner button.close span {
-    			display: inline-block;
-    			-ms-transform: rotate(45deg);
-    			-webkit-transform: rotate(45deg);
-    		  transform: rotate(45deg);
-				}
-				
-    		div.poi-modal-inner .embed-container {
-    			position: relative;
-    	    padding-bottom: 56.25%;
-    	    padding-top: 35px;
-    	    height: 0;
-    	    overflow: hidden;
-				}
-				
-    			div.poi-modal-inner .embed-container iframe {
-    				position: absolute;
-    		    top:0;
-    		    left: 0;
-    		    width: 100%;
-    		    height: 100%;
-    			}
-  `]
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+      ul li {
+        margin-bottom: .5rem;
+      }
+
+        ul li input {
+          float: left;
+          margin: .375rem .25rem 0 0;
+        }
+
+        ul li label {
+          margin: 0;
+          display: block;
+          overflow: hidden;
+        }
+
+    input:checked + label {
+      font-weight: bold;
+    }
+
+    :host-context(.question.submitted) label.answer {
+      font-style: italic;
+      color: #4CAF50;
+    }
+  `],
+  template: `
+    <ul>
+      <li *ngFor="let option of data.answers; let o = index">
+        <input
+          *ngIf="isRadio(data)"
+          type="radio"
+          [id]="inputId(o)"
+          [name]="inputName(data, o)"
+          [(ngModel)]="data.input"
+          [value]="option.text"
+          [disabled]="data.submitted"
+        >
+        <input
+          *ngIf="isCheckbox(data)"
+          type="checkbox"
+          [id]="inputId(o)"
+          [name]="inputName(data, o)"
+          [(ngModel)]="option.checked"
+          [value]="option.text"
+          [disabled]="data.submitted"
+        >
+        <label
+          [ngClass]="{'answer': isAnswer(option)}"
+          [attr.for]="labelFor(o)"
+        >
+          {{option.text}}
+        </label>
+      </li>
+    </ul>
+  `
 })
-export class PoiModal implements OnInit {
+export class QuizQuestionOptions implements OnInit {
 
-  @Input() modalData: any;
+  @Input() data: any;
 
-  @Output() modalChange = new EventEmitter();
-	
-	modalActive: boolean;
+  @Input() questionIndex: string;
 
-  constructor(
-		public sanitizer: DomSanitizer
-  ) {}
+  constructor() { }
 
   ngOnInit() {
   }
 
-  closeModal() {
-    this.modalActive = false;
-    this.modalChange.emit({
-      value: this.modalActive
-    });
-	}
-	
-	iframeUrl(url: string) {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  inputId(optionIndex: string) {
+    return this.questionIndex + '-' + optionIndex;
+  }
+
+  inputName(question: any, optionIndex: string) {
+    if (this.inputType(question) === 'checkbox') {
+      return this.questionIndex + '-' + optionIndex;
+    } else if (this.inputType(question) === 'radio') {
+      return this.questionIndex;
+    }
+  }
+
+  inputType(question: any) {
+    let answerCount: number = 0;
+    for (let answer of question.answers) {
+      if (answer.correct) {
+        answerCount++;
+      }
+    }
+    if (answerCount != 1 || question.type === 'checkbox') {
+      return 'checkbox';
+    } else {
+      return 'radio';
+    }
+  }
+
+  isAnswer(option: any) {
+    if (this.data.submitted) {
+      if (option.correct) {
+        return true;
+      }
+      return false;
+    }
+  }
+
+  isCheckbox(question: any) {
+    if (this.inputType(question) === 'checkbox') {
+      return true;
+    }
+  }
+
+  isRadio(question: any) {
+    if (this.inputType(question) === 'radio') {
+      return true;
+    }
+  }
+
+  labelFor(optionIndex: string) {
+    return this.questionIndex + '-' + optionIndex;
   }
 
 }
 
 @Component({
-  selector: 'edu-poi',
-  template: `
-		<section class="poi-row">
-			<div class="poi-wrapper">
-				<img class="background" [src]="poiData.backgroundUrl">
-				<div class="point" *ngFor="let point of poiData.points; let i = index" [style.top.%]="point.top" [style.left.%]="point.left" (click)="pointClick(point)">
-					<span class="pulse"></span>
-					<button></button>
-					<span class="label" *ngIf="point.label">{{point.label}}</span>
-				</div>
-				<edu-poi-modal *ngIf="poiModal" [modalData]="poiModalData" (modalChange)="modalChange($event);"></edu-poi-modal>
-			</div>
-		</section>
-  `,
+  selector: 'edu-quiz',
   styles: [`
-    section.poi-row {
+    .edu-quiz-wrapper > nav {
+      display: none;
+    }
+
+    .edu-quiz-wrapper > .tab-body {
       display: block;
-      text-align: center;
-		}
-		
-    div.poi-wrapper {
-      position: relative;
-      display: inline-block;
-      text-align: left;
-      vertical-align:top;
-		}
-		
-      div.poi-wrapper img.background {
+    }
+
+    .edu-quiz-wrapper.finished > nav {
+      display: block;
+      border-bottom: 2px solid #e5e5e5;
+    }
+
+    .edu-quiz-wrapper.finished > nav button {
+      opacity: .7;
+      margin-right: 2px;
+    }
+
+    .edu-quiz-wrapper.finished > nav button.active {
+      opacity: 1;
+    }
+
+    .edu-quiz-wrapper.finished > .tab-body {
+      display: none;
+    }
+
+    .edu-quiz-wrapper.finished > .tab-body.active {
+      display: block;
+    }
+
+    span.correct {
+    	color: #4CAF50;
+    }
+
+    span.incorrect {
+    	color: #F44336;
+    }
+
+    .pure-form fieldset {
+    	border: 0;
+    	padding: 0;
+    }
+
+    fieldset p,
+    fieldset ul {
+    	max-width: 48rem;
+    }
+
+      fieldset legend {
+        margin-bottom: 1rem;
+        font-weight: bold;
+      }
+
+    		fieldset div.question p.q-counter {
+    			float: left;
+    			width: 3.25rem;
+    			padding-left: 1.25rem;
+        }
+        
+    	fieldset div.question div.q-body {
         display: block;
-			}
-			
-      @-webkit-keyframes pulse {
-      	0% {
-      		-webkit-transform: scale(1);
-      		opacity: 0.0;
-      	}
-      	25% {
-      		-webkit-transform: scale(1);
-      		opacity: 0.1;
-      	}
-      	50% {
-      		-webkit-transform: scale(1.2);
-      		opacity: 0.3;
-      	}
-      	75% {
-      		-webkit-transform: scale(2);
-      		opacity: 0.5;
-      	}
-      	100% {
-      		-webkit-transform: scale(2.6);
-      		opacity: 0.0;
-      	}
-			}
-			
-      @keyframes pulse {
-      	0% {
-      		transform: scale(1);
-      		opacity: 0.0;
-      	}
-      	25% {
-      		transform: scale(1);
-      		opacity: 0.1;
-      	}
-      	50% {
-      		transform: scale(1.2);
-      		opacity: 0.3;
-      	}
-      	75% {
-      		transform: scale(2);
-      		opacity: 0.5;
-      	}
-      	100% {
-      		transform: scale(2.6);
-      		opacity: 0.0;
-      	}
-			}
-			
-      div.point {
-      	position: absolute;
-        line-height: 0;
-        -ms-transform: translate(-50%, -50%);
-      	-webkit-transform: translate(-50%, -50%);
-      	transform: translate(-50%, -50%);
-			}
-			
-        div.point span.pulse {
-        	background: transparent;
-        	position: absolute;
-        	top: 0;
-        	left: 0;
-        	opacity: 0;
-          -ms-transform: scale(0);
-        	-webkit-transform: scale(0);
-        	transform: scale(0);
-        	height: 1rem;
-        	width: 1rem;
-        	border-radius: 50%;
-        	border: 3px solid #F9D423;
-        	-webkit-animation: pulse 1.6s ease-out;
-        	animation: pulse 1.6s ease-out;
-        	-webkit-animation-iteration-count: infinite;
-        	animation-iteration-count: infinite;
-				}
-				
-        div.point button {
-        	position: relative;
-        	height: 1rem;
-        	width: 1rem;
-        	background: transparent;
-        	padding: 0;
-        	border-radius: 50%;
-        	display: block;
-        	margin: 0 auto;
-        	border: 0;
-        	border: 3px solid #F9D423;
-        	z-index: 4;
-				}
-				
-        div.point button {
-        	display: inline;
-				}
-				
-        div.point button:hover,
-        div.point button:focus  {
-        	background-color: #FFC107;
-				}
-				
-        div.point button + span.label {
-        	display: none;
-          line-height: 1.5;
-          white-space: nowrap;
-        	position: absolute;
-        	top: 0;
-        	left: 50%;
-        	text-align: center;
-          color: #fff;
-          background-color: rgba(0,0,0,.7);
-          padding: .25rem .5rem;
-        	border-radius: 3px;
-          -ms-transform: translate(-50%, -150%);
-        	-webkit-transform: translate(-50%, -150%);
-        	transform: translate(-50%, -150%);
-				}
-				
-        div.point button + span.label:after {
-        	content:"";
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-        	width: 0;
-        	height: 0;
-        	border-left: .25em solid transparent;
-        	border-right: .25em solid transparent;
-        	border-top: .25em solid rgba(0,0,0,.7);
-          -ms-transform: translate(-50%, 100%);
-        	-webkit-transform: translate(-50%, 100%);
-        	transform: translate(-50%, 100%);
-				}
-				
-        div.point button:hover + span.label,
-        div.point button:focus + span.label {
-        	display: block;
-				}
-				
-    edu-poi-modal {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: 999;
-		}
-		
-  `]
+        overflow: hidden;
+      }
+      
+      fieldset div.question.submitted p.q-counter {
+        padding-left: 0;
+      }
+      
+        form.quiz fieldset div.question p.q-counter span.q-grade {
+          float: left;
+          width: 1rem;
+          margin-right: .25rem;
+        }
+        
+        form.quiz fieldset div.question p.q-counter,
+        form.quiz fieldset div.question p.q-intro {
+          margin-top: 0;
+        }
+        
+        form.quiz div.question p.feedback {
+          margin-top: 0;
+        }
+  `],
+  template: `
+    <div class="edu-quiz-wrapper" [ngClass]="{'finished': isSetBySetFinished()}">
+      <nav>
+        <button class="pure-button edu-quiz-tab" *ngFor="let tab of tabs; let t = index;" [ngClass]="{'active': tab.active}" (click)="setActiveTab(t)">{{tab.name}}</button>
+      </nav>
+      <section class="tab-body" [ngClass]="{'active': isActiveTab(1)}">
+        <form class="pure-form quiz" (ngSubmit)="submitQuiz()" #f="ngForm">
+          <ng-container *ngFor="let set of data.sets; let s = index;">
+            <fieldset *ngIf="isSetActive(s)">
+              <legend>{{set.intro}}</legend>
+              <div class="question" [ngClass]="{'submitted': question.submitted}" *ngFor="let question of set.questions; let q = index;">
+                <p class="q-counter">
+                  <span class="q-grade" *ngIf="question.submitted">
+                    <span class="fa fa-check correct animated tada" *ngIf="question.correct"></span>
+                    <span class="fa fa-close incorrect animated wobble" *ngIf="!question.correct"></span>
+                  </span>
+                  <span>{{q + 1}}.</span>
+                </p>
+                <div class="q-body">
+                  <p class="q-intro">
+                    {{question.question}}
+                  </p>
+                  <question-options *ngIf="question.answers" [data]="question" [questionIndex]="questionIndex(s, q)"></question-options>
+                  <p class="feedback" *ngIf="question.feedback">
+                    <span *ngIf="question.submitted"><strong>Feedback:</strong> <em>{{question.feedback}}</em></span>
+                  </p>
+                </div>
+              </div>
+            </fieldset>
+          </ng-container>
+          <nav *ngIf="isNotOnLastSet()">
+            <button class="pure-button" type="button" (click)="changeActive('next')">Next</button>
+          </nav>
+          <p *ngIf="isReadyForSubmission()">
+            <button class="pure-button" type="submit" *ngIf="!data.inputDisabled">Submit</button>
+          </p>
+        </form>
+      </section>
+      <section class="tab-body" [ngClass]="{'active': isActiveTab(0)}">
+        <p *ngIf="data.inputDisabled">
+          {{data.feedback}} You got {{data.numberCorrect}} correct.
+        </p>
+        <p>
+          <button type="button" class="pure-button" *ngIf="data.inputDisabled" (click)="reload()">Retry</button>
+        </p>
+      </section>
+    </div>
+  `
 })
-export class Poi implements OnInit {
+export class Quiz implements OnInit {
 
   @Input() data: any;
 
-	poiData: any;
-	
-	poiModal: boolean = false;
-	
-	poiModalData: any;
+  @Output() completed: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(
-    public router: Router
-  ) {}
+  index: number = 0;
+
+  tabs: any = [
+    {
+      name: "Results",
+      active: true
+    },
+    {
+      name: "Questions"
+    }
+  ];
+
+  total: number = 0;
+
+  constructor() { }
 
   ngOnInit() {
-		this.poiData = this.data;
-  }
-
-  modalChange(event: any ) {
-    this.poiModal = event.value;
-  }
-
-  pointClick(point: any) {
-    this.poiModal = false;
-    if (point.route) {
-      this.router.navigate([point.route]);
-    } else {
-      this.poiModal = true;
-      this.poiModalData = point;
+    this.data.numberCorrect = 0;
+    if (this.data.oneSetAtATime) {
+      this.setActive(this.index);
     }
+  }
+
+  changeActive(direction: string) {
+    if (direction === 'next') {
+      this.setActive(this.index + 1);
+    } else {
+      this.setActive(this.index - 1);
+    }
+  }
+
+  countTotalQuestions() {
+    let total:number = 0;
+    for (let set of this.data.sets) {
+      for (let question of set.questions) {
+        total++;
+      }
+    }
+    return total;
+  }
+  
+  isActiveTab(index: number) {
+    if (
+      this.isSetBySetFinished()
+      && this.tabs[index].active
+    ) {
+      return true;
+    }
+  }
+
+  isNotOnLastSet() {
+    if (
+      this.data.oneSetAtATime &&
+      this.index != this.data.sets.length - 1
+    ) {
+      return true;
+    }
+  }
+
+  isSetBySetFinished() {
+    if (this.data.oneSetAtATime) {
+      for (let set of this.data.sets) {
+        for (let question of set.questions) {
+          if (!question.submitted) {
+            return false;
+          }
+        }
+      }
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  isReadyForSubmission() {
+    if (
+      !this.isNotOnLastSet() ||
+      !this.data.oneSetAtATime
+    ) {
+      return true;
+    }
+  }
+
+  isSetActive(index: number) {
+    if (
+      !this.data.oneSetAtATime ||
+      this.isSetBySetFinished() ||
+      this.data.sets[index].active
+    ) {
+      return true;
+    }
+  }
+
+  inputType(question: any) {
+    let answerCount: number = 0;
+    for (let answer of question.answers) {
+      if (answer.correct) {
+        answerCount++;
+      }
+    }
+    if (answerCount != 1 || question.type === 'checkbox') {
+      return 'checkbox';
+    } else {
+      return 'radio';
+    }
+  }
+
+  isCheckbox(question: any) {
+    if (this.inputType(question) === 'checkbox') {
+      return true;
+    }
+  }
+
+  isRadio(question: any) {
+    if (this.inputType(question) === 'radio') {
+      return true;
+    }
+  }
+
+  questionIndex(setIndex: number , questionIndex: number) {
+    return setIndex + '-' + questionIndex;
+  }
+
+  reload() {
+    this.data.numberCorrect = 0;
+    for (let set of this.data.sets) {
+      for (let question of set.questions) {
+        delete question.input;
+        question.submitted = false;
+        question.correct = false;
+        for (let answer of question.answers) {
+          delete answer.checked;
+        }
+      }
+    }
+    this.data.inputDisabled = false;
+    this.setActive(0);
+  }
+
+  setActive(index: number) {
+    for (let set of this.data.sets) {
+      set.active = false;
+    }
+    this.index = index;
+    this.data.sets[index].active = true;
+  }
+
+  setActiveTab(index: number) {
+    for (let tab of this.tabs) {
+      tab.active = false;
+    }
+    this.tabs[index].active = true;
+  }
+
+  submitQuiz() {
+    for (let set of this.data.sets) {
+      for (let question of set.questions) {
+        question.submitted = true;
+        if (this.isCheckbox(question)) {
+          let incorrect: number = 0;
+          let missed: number = 0;
+          // check to see if checked inputs are correct
+          for (let answer of question.answers) {
+            if (answer.checked && !answer.correct) {
+              incorrect++;
+            }
+            if (answer.correct && !answer.checked) {
+              missed++;
+            }
+          }
+          // if there are no incorrect or missed checks, mark as correct
+          if (
+            incorrect === 0 &&
+            missed === 0
+          ) {
+            question.correct = true;
+            this.data.numberCorrect++;
+          }
+        } else if (this.isRadio(question)) {
+          for (let answer of question.answers) {
+            if (
+              answer.correct &&
+              question.input === answer.text
+            ) {
+              question.correct = true;
+              this.data.numberCorrect++;
+            }
+          }
+        } else {
+          console.log('Data does not conform to any question types! Make sure you have selected at least one correct answer for each question.')
+        }
+      }
+    }
+    this.data.inputDisabled = true;
+    this.completed.emit({
+      questionsTotal: this.countTotalQuestions(),
+      quizData: this.data
+    });
   }
 
 }
 
 @NgModule({
-    imports: [CommonModule],
-    exports: [Poi],
-    declarations: [Poi, PoiModal]
+    imports: [CommonModule, FormsModule],
+    exports: [Quiz],
+    declarations: [Quiz, QuizQuestionOptions]
 })
-export class PoiModule { }
+export class QuizModule { }
