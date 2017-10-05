@@ -2,7 +2,7 @@ import { NgModule, Component, OnInit, Input, HostListener } from '@angular/core'
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'oe-flashcards',
+  selector: 'edu-flashcards',
   template: `
     <div class="cardset-wrapper clearfix">
       <!-- Card -->
@@ -10,9 +10,9 @@ import { CommonModule } from '@angular/common';
         <!-- Front -->
         <div class="card front" (click)="flipCard(i)">
           <div class="card-contents" [ngClass]="{'disable-centering': card.front.disableCentering}">
-            <img *ngIf="card.front.image" [src]="card.front.image" [alt]="card.front.alt">
-            <p *ngIf="card.front.copy">
-              <strong>{{card.front.copy}}</strong>
+            <img *ngIf="card.front.imageUrl" [src]="card.front.imageUrl" [alt]="card.front.alt">
+            <p *ngIf="card.front.text">
+              <strong>{{card.front.text}}</strong>
             <p>
             <div *ngIf="card.front.html" [innerHtml]="card.front.html"></div>
           </div>
@@ -20,9 +20,9 @@ import { CommonModule } from '@angular/common';
         <!-- Back -->
         <div class="card back" (click)="flipCard(i)">
           <div class="card-contents" [ngClass]="{'disable-centering': card.back.disableCentering}">
-            <img *ngIf="card.back.image" [src]="card.back.image" [alt]="card.back.alt">
-            <p *ngIf="card.back.copy">
-              <strong>{{card.back.copy}}</strong>
+            <img *ngIf="card.back.imageUrl" [src]="card.back.imageUrl" [alt]="card.back.alt">
+            <p *ngIf="card.back.text">
+              <strong>{{card.back.text}}</strong>
             </p>
             <div *ngIf="card.back.html" [innerHtml]="card.back.html"></div>
           </div>
@@ -211,42 +211,21 @@ export class Flashcards implements OnInit {
   constructor( ) { }
 
   ngOnInit() {
-    this.flashcardsData = this.data;
-    this.shuffleCards();
+    this.initialize();    
   }
-
-  shuffle(sourceArray: any) {
-    for (var n = 0; n < sourceArray.length - 1; n++) {
-      var k = n + Math.floor(Math.random() * (sourceArray.length - n));
-      var temp = sourceArray[k];
-      sourceArray[k] = sourceArray[n];
-      sourceArray[n] = temp;
-    }
-  }
-
-  shuffleCards() {
-    if(this.flashcardsData.shuffle) {
-      this.shuffle(this.flashcardsData.cards);
-    }
-  }
-
+  
   changeCard(direction: string) {
     this.flashcardsData.cards[this.flashcardsData.cardNumber].flipped = false;
-    if (direction === 'next' && this.flashcardsData.cardNumber < this.flashcardsData.cards.length - 1) {
+    if (
+      direction === 'next' &&
+      this.flashcardsData.cardNumber < this.flashcardsData.cards.length - 1
+    ) {
       this.flashcardsData.cardNumber++;
-    } else if (direction === 'prev' && this.flashcardsData.cardNumber > 0) {
+    } else if (
+      direction === 'prev' &&
+      this.flashcardsData.cardNumber > 0) {
       this.flashcardsData.cardNumber--;
     }
-  }
-
-  showCard(index: number) {
-    if (this.flashcardsData.cardNumber === index) {
-      return true;
-    }
-  }
-
-  flipCard(index: number) {
-    this.flashcardsData.cards[index].flipped = !this.flashcardsData.cards[index].flipped;
   }
 
   firstCard() {
@@ -255,9 +234,40 @@ export class Flashcards implements OnInit {
     }
   }
 
+  flipCard(index: number) {
+    this.flashcardsData.cards[index].flipped = !this.flashcardsData.cards[index].flipped;
+  }
+
   lastCard() {
     if (this.flashcardsData.cardNumber === this.flashcardsData.cards.length - 1) {
       return true;
+    }
+  }
+
+  initialize() {
+    this.flashcardsData = this.data;
+    this.flashcardsData.cardNumber = 0;
+    this.shuffleCards();
+  }
+
+  showCard(index: number) {
+    if (this.flashcardsData.cardNumber === index) {
+      return true;
+    }
+  }
+
+  shuffle(sourceArray: any) {
+    for (let n = 0; n < sourceArray.length - 1; n++) {
+      let k = n + Math.floor(Math.random() * (sourceArray.length - n));
+      let temp = sourceArray[k];
+      sourceArray[k] = sourceArray[n];
+      sourceArray[n] = temp;
+    }
+  }
+
+  shuffleCards() {
+    if(this.flashcardsData.shuffle) {
+      this.shuffle(this.flashcardsData.cards);
     }
   }
 
