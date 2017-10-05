@@ -1,7 +1,7 @@
 import { NgModule, Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'edu-poi-modal',
@@ -320,7 +320,7 @@ export class Poi implements OnInit {
 		this.poiData = this.data;
   }
 
-  modalChange(event: any ) {
+  modalChange(event: any) {
     this.poiModal = event.value;
   }
 

@@ -8,6 +8,7 @@ export default {
     '@angular/core': 'ng.core',
     '@angular/common': 'ng.common',
     '@angular/forms': 'ng.forms',
+    '@angular/platform-browser': 'ng.platformBrowser',
     '@angular/router': 'ng.router',
     'rxjs/Observable': 'Rx',
     'rxjs/add/operator/map': 'Rx.Observable.prototype'

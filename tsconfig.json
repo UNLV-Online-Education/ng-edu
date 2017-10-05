@@ -14,11 +14,14 @@
 			],
 			"@angular/common": [
 				"node_modules/@angular/common"
+      ],
+      "@angular/platform-browser": [
+				"node_modules/@angular/platform-browesr"
 			],
-      "@angular/http": [
+      "@angular/router": [
 				"node_modules/@angular/router"
 			],
-      "@angular/http": [
+      "@angular/forms": [
 				"node_modules/@angular/forms"
 			],
 			"rxjs/*": [

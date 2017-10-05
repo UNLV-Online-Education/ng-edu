@@ -16,7 +16,7 @@ import { QuizModule } from '../quiz/quiz';
                 </div>
               </button>
             </nav>
-            <oe-quiz [data]="exercise.oeQuiz" *ngIf="exercise?.oeQuiz" (completed)="completedEvent($event, exercise)"></oe-quiz>
+            <edu-quiz [data]="exercise.oeQuiz" *ngIf="exercise?.oeQuiz" (completed)="completedEvent($event, exercise)"></edu-quiz>
           </span></span><span class="after-clickable" [innerHtml]="exercise.after" *ngIf="exercise.after"></span>
       </span>
     </p>
@@ -140,12 +140,11 @@ import { QuizModule } from '../quiz/quiz';
 })
 export class InteractiveText implements OnInit {
 
-  @Input() data:any;
+  @Input() data: any;
 
   constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   closeAllPrompts() {
     for (let paragraph of this.data.paragraphs) {
