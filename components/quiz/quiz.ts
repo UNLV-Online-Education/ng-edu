@@ -253,12 +253,15 @@ export class QuizQuestionOptions implements OnInit {
           </p>
         </form>
       </section>
-      <section class="tab-body" [ngClass]="{'active': isActiveTab(0)}">
-        <p *ngIf="data.inputDisabled">
-          {{data.feedback}} You got {{data.numberCorrect}} correct.
+      <section class="tab-body" [ngClass]="{'active': isActiveTab(0)}" *ngIf="data.inputDisabled">
+        <p>
+          You got {{data.numberCorrect}} correct.
         </p>
         <p>
-          <button type="button" class="pure-button" *ngIf="data.inputDisabled" (click)="reload()">Retry</button>
+          {{data.feedback}}
+        </p>
+        <p>
+          <button type="button" class="pure-button" (click)="reload()">Retry</button>
         </p>
       </section>
     </div>

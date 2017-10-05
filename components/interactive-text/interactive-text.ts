@@ -16,7 +16,7 @@ import { QuizModule } from '../quiz/quiz';
                 </div>
               </button>
             </nav>
-            <edu-quiz [data]="exercise.oeQuiz" *ngIf="exercise?.oeQuiz" (completed)="completedEvent($event, exercise)"></edu-quiz>
+            <edu-quiz [data]="exercise.eduQuiz" *ngIf="exercise?.eduQuiz" (completed)="completedEvent($event, exercise)"></edu-quiz>
           </span></span><span class="after-clickable" [innerHtml]="exercise.after" *ngIf="exercise.after"></span>
       </span>
     </p>
@@ -156,7 +156,7 @@ export class InteractiveText implements OnInit {
 
   clickable(exercise: any) {
     this.closeAllPrompts();
-    if (exercise.oeQuiz) {
+    if (exercise.eduQuiz) {
       exercise.showChoices = true;
     } else {
       exercise.completed = true;
