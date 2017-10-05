@@ -2,12 +2,12 @@ import { NgModule, Component, OnInit, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'oe-layer-toggle-controls',
+  selector: 'edu-layer-toggle-controls',
   template: `
     <p *ngIf="!data">
       No data!
     </p>
-    <section class="oe-layer-toggle-controls" *ngIf="data">
+    <section class="edu-layer-toggle-controls" *ngIf="data">
       <ul>
         <li *ngFor="let layer of data.layers">
           <span (click)="activate(layer)" [ngClass]="{active: layer.active}">{{layer.label}}</span>
@@ -16,30 +16,34 @@ import { CommonModule } from '@angular/common';
     </section>
   `,
   styles: [`
-    .oe-layer-toggle-controls {
-      height: 100%;
+    .edu-layer-toggle-controls {
     }
-    .oe-layer-toggle-controls:after {
+
+    .edu-layer-toggle-controls:after {
         content: "";
         display: table;
         clear: both;
     }
-    .oe-layer-toggle-controls ul {
+
+    .edu-layer-toggle-controls ul {
       margin: 0;
-      padding: 1rem 0 0;
       list-style-type: none;
     }
-    .oe-layer-toggle-controls ul li {
+
+    .edu-layer-toggle-controls ul li {
       text-indent: -1rem;
       padding-left: 1rem;
     }
-    .oe-layer-toggle-controls ul li span {
+
+    .edu-layer-toggle-controls ul li span {
       cursor: pointer;
     }
-    .oe-layer-toggle-controls ul li span:hover {
+
+    .edu-layer-toggle-controls ul li span:hover {
       opacity: .80;
     }
-    .oe-layer-toggle-controls ul li span.active {
+
+    .edu-layer-toggle-controls ul li span.active {
       font-weight: bold;
     }
   `]
@@ -53,7 +57,7 @@ export class LayerToggleControls implements OnInit {
   ngOnInit() {
   }
 
-  activate(layer:any) {
+  activate(layer: any) {
     for (let i = 0; i < this.data.layers.length; i++) {
       let dataLayer = this.data.layers[i];
       if (!this.data.cumulative) {
@@ -68,24 +72,24 @@ export class LayerToggleControls implements OnInit {
 }
 
 @Component({
-  selector: 'oe-layer-toggle-display',
+  selector: 'edu-layer-toggle-display',
   template: `
     <p *ngIf="!data">
       No data!
     </p>
-    <section class="oe-layer-toggle-display" *ngIf="data">
-      <img [src]="data.backgroundPath">
-      <img class="layer" *ngFor="let layer of data.layers" [src]="layer.imagePath" [ngClass]="{active: layer.active}">
+    <section class="edu-layer-toggle-display" *ngIf="data">
+      <img class="layer-background" [src]="data.backgroundUrl">
+      <img class="layer" *ngFor="let layer of data.layers" [src]="layer.imageUrl" [ngClass]="{active: layer.active}">
     </section>
   `,
   styles: [`
-    .oe-layer-toggle-display {
+    .edu-layer-toggle-display {
       position: relative;
     }
-    .oe-layer-toggle-display img {
+    .edu-layer-toggle-display img {
       display: block;
     }
-    .oe-layer-toggle-display img.layer {
+    .edu-layer-toggle-display img.layer {
       display: block;
       opacity: 0;
       position: absolute;
@@ -94,7 +98,7 @@ export class LayerToggleControls implements OnInit {
       -webkit-transition: opacity .3s ease;
       transition: opacity .3s ease;
     }
-    .oe-layer-toggle-display img.layer.active {
+    .edu-layer-toggle-display img.layer.active {
       opacity: 1;
       -webkit-transition: opacity .3s ease;
       transition: opacity .3s ease;
