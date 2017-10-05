@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
     <section class="edu-layer-toggle-controls" *ngIf="data">
       <ul>
         <li *ngFor="let layer of data.layers">
-          <span (click)="activate(layer)" [ngClass]="{active: layer.active}">{{layer.label}}</span>
+          <button (click)="activate(layer)" [ngClass]="{active: layer.active}">{{layer.label}}</button>
         </li>
       </ul>
     </section>
@@ -37,6 +37,8 @@ import { CommonModule } from '@angular/common';
 
     .edu-layer-toggle-controls ul li span {
       cursor: pointer;
+      background: none;
+      border: none;
     }
 
     .edu-layer-toggle-controls ul li span:hover {
