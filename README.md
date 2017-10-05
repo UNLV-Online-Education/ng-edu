@@ -19,5 +19,8 @@ Components are configured as Angular modules.  Once you have installed the libra
 import { LayerToggleModule } from 'ng-edu';
 ```
 
-## Full Documentation
-[GitHub Wiki](https://github.com/UNLV-Online-Education/ng-edu/wiki)
+## Documentation
+The documentation for ng-edu is located in this repo's [wiki](https://github.com/UNLV-Online-Education/ng-edu/wiki).
+
+## License
+MIT
