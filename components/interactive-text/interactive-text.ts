@@ -7,7 +7,7 @@ import { QuizModule } from '../quiz/quiz';
   template: `
     <p class="paragraph" *ngFor="let paragraph of data.paragraphs">
       <span class="exercise" *ngFor="let exercise of paragraph.exercises">
-        <span class="before-clickable" [innerHtml]="exercise.before" *ngIf="exercise.before"></span><span class="clickable" [ngClass]="{'highlight': isHighlighted(exercise), 'completed': exercise.completed}" *ngIf="exercise.clickable"><span (click)="clickable(exercise)">{{exercise.clickable}}</span><span class="choices animated fadeInRight" *ngIf="exercise.showChoices">
+        <span class="before-clickable" [innerHtml]="exercise.before" *ngIf="exercise.before"></span><span class="clickable" [ngClass]="{'highlight': isHighlighted(exercise), 'active': isActive(exercise),'completed': exercise.completed}" *ngIf="exercise.clickable"><span (click)="clickable(exercise)">{{exercise.clickable}}</span><span class="choices animated fadeInRight" *ngIf="exercise.showChoices">
             <nav>
               <button class="btn-close" (click)="closeAllPrompts()">
                 <div class="ex">
@@ -16,7 +16,7 @@ import { QuizModule } from '../quiz/quiz';
                 </div>
               </button>
             </nav>
-            <oe-quiz [data]="exercise.eduQuiz" *ngIf="exercise?.eduQuiz" (completed)="completedEvent($event, exercise)"></oe-quiz>
+            <oe-quiz [data]="exercise.oeQuiz" *ngIf="exercise?.oeQuiz" (completed)="completedEvent($event, exercise)"></oe-quiz>
           </span></span><span class="after-clickable" [innerHtml]="exercise.after" *ngIf="exercise.after"></span>
       </span>
     </p>
@@ -46,6 +46,11 @@ import { QuizModule } from '../quiz/quiz';
 
     span.clickable.highlight {
       background-color: #FFF9C4;
+    }
+
+    span.clickable.highlight:hover:not(.completed),
+    span.clickable.highlight.active:not(.completed) {
+      background-color: #FFF176;
     }
 
     span.clickable.highlight.completed {
@@ -152,10 +157,16 @@ export class InteractiveText implements OnInit {
 
   clickable(exercise: any) {
     this.closeAllPrompts();
-    if (exercise.eduQuiz) {
+    if (exercise.oeQuiz) {
       exercise.showChoices = true;
     } else {
       exercise.completed = true;
+    }
+  }
+
+  isActive(exercise: any) {
+    if (exercise.states.incomplete.highlight && exercise.showChoices) {
+      return true;
     }
   }
 
