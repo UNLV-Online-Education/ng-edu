@@ -1,8 +1,8 @@
 {
-	"name": "ng2-edu",
-	"version": "0.10.2",
+	"name": "ng-edu",
+	"version": "0.11.0",
 	"description": "A library of Angular 2 components for use in online education applications/interactives/digital learning objects.",
-	"main": "bundles/ng2-edu.umd.min.js",
+	"main": "bundles/ng-edu.umd.min.js",
 	"module": "index.js",
 	"typings": "index.d.ts",
 	"keywords": [
@@ -20,7 +20,7 @@
 	"license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/UNLV-Online-Education/ng2-edu"
+    "url": "https://github.com/UNLV-Online-Education/ng-edu"
   },
 	"peerDependencies": {
 		"@angular/core": "^4.0.0",

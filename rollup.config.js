@@ -1,6 +1,6 @@
 export default {
   entry: 'dist/index.js',
-  dest: 'dist/bundles/ng2-edu.umd.js',
+  dest: 'dist/bundles/ng-edu.umd.js',
   sourceMap: false,
   format: 'umd',
   moduleName: 'ng.edu',
