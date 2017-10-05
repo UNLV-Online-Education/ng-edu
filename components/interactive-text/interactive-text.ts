@@ -58,9 +58,10 @@ import { QuizModule } from '../quiz/quiz';
     }
 
     span.choices {
+      z-index: 1;
       border-radius: 2px;
       display: inline-block;
-      background-color: rgba(255, 255, 255, .9);
+      background-color: rgba(255, 255, 255, .98);
       position: fixed;
       padding: 1rem;
       top: 0;
@@ -126,7 +127,6 @@ import { QuizModule } from '../quiz/quiz';
       }
 
       .btn-close:hover .ex .line {
-        background-color: #00BCD4;
         transition: background-color .1s linear;
       }
 
