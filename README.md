@@ -19,5 +19,5 @@ Components are configured as Angular modules.  Once you have installed the libra
 import { QuizModule, LayerToggleModule } from 'ng-edu';
 ```
 
-## Full Documention
+## Full Documentation
 [GitHub Wiki](https://github.com/UNLV-Online-Education/ng-edu/wiki)
