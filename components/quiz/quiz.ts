@@ -231,7 +231,7 @@ export class QuizQuestionOptions implements OnInit {
                     <span class="fa fa-check correct animated tada" *ngIf="question.correct"></span>
                     <span class="fa fa-close incorrect animated wobble" *ngIf="!question.correct"></span>
                   </span>
-                  <span>{{q + 1}}.</span>
+                  <span>{{questionNumber(s, q)}}.</span>
                 </p>
                 <div class="q-body">
                   <p class="q-intro">
@@ -394,6 +394,22 @@ export class Quiz implements OnInit {
 
   questionIndex(setIndex: number , questionIndex: number) {
     return setIndex + '-' + questionIndex;
+  }
+
+  questionNumber(setIndex: number, questionIndex: number) {
+    let setCount: number = 0;
+    let questionCount: number = 0;
+    for (let set of this.data.sets) {
+      if (setCount < setIndex) {
+        setCount++;
+        for (let question of set.questions) {
+          questionCount++;
+        }
+      } else {
+        break;
+      }
+    }
+    return questionCount + questionIndex + 1;
   }
 
   reload() {
