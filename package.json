@@ -22,7 +22,16 @@
     "learning",
     "angular2"
   ],
-  "author": "John Murphy",
+  "author": {
+		"name": "John Murphy",
+		"email": "john.murphy@unlv.edu"
+	},
+  "contributors": [
+    {
+      "name" : "Patrick Rios",
+      "email" : "patrick.rios@unlv.edu"
+    }
+  ],
   "license": "MIT",
   "dependencies": {
     "@angular/common": "^4.0.0",

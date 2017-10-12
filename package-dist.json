@@ -17,6 +17,12 @@
 		"name": "John Murphy",
 		"email": "john.murphy@unlv.edu"
 	},
+  "contributors": [
+    {
+      "name" : "Patrick Rios",
+      "email" : "patrick.rios@unlv.edu"
+    }
+  ],
 	"license": "MIT",
   "repository": {
     "type": "git",
