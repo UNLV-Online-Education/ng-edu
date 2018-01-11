@@ -25,6 +25,10 @@ import { FormsModule } from '@angular/forms';
           overflow: hidden;
         }
 
+          ul li label img {
+            display: block;
+          }
+
     input:checked + label {
       font-weight: bold;
     }
@@ -37,6 +41,7 @@ import { FormsModule } from '@angular/forms';
   template: `
     <ul>
       <li *ngFor="let option of data.answers; let o = index">
+        
         <input
           *ngIf="isRadio(data)"
           type="radio"
@@ -60,6 +65,7 @@ import { FormsModule } from '@angular/forms';
           [attr.for]="labelFor(o)"
         >
           {{option.text}}
+          <img *ngIf="option.image" [src]="option.image" [alt]="option.alt">
         </label>
       </li>
     </ul>
@@ -236,6 +242,9 @@ export class QuizQuestionOptions implements OnInit {
                 <div class="q-body">
                   <p class="q-intro">
                     {{question.question}}
+                  </p>
+                  <p *ngIf="question.image">
+                    <img [src]="question.image" [alt]="question.alt">
                   </p>
                   <question-options *ngIf="question.answers" [data]="question" [questionIndex]="questionIndex(s, q)"></question-options>
                   <p class="feedback" *ngIf="question.feedback">

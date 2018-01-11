@@ -1,6 +1,6 @@
 {
   "name": "build-ng-edu",
-  "version": "0.11.3",
+  "version": "0.12.0",
   "description": "A library of Angular 2 components for use in online education applications/interactives/digital learning objects.",
   "repository": {
     "type": "git",
@@ -23,13 +23,13 @@
     "angular2"
   ],
   "author": {
-		"name": "John Murphy",
-		"email": "john.murphy@unlv.edu"
-	},
+    "name": "John Murphy",
+    "email": "john.murphy@unlv.edu"
+  },
   "contributors": [
     {
-      "name" : "Patrick Rios",
-      "email" : "patrick.rios@unlv.edu"
+      "name": "Patrick Rios",
+      "email": "patrick.rios@unlv.edu"
     }
   ],
   "license": "MIT",
