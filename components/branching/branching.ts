@@ -9,14 +9,14 @@ import { CommonModule } from '@angular/common';
         <h4>{{node.data.title}}</h4>
         <p>{{node.data.text}}</p>
         <div [innerHtml]="node.data.html"></div>
-        <img class="graphic" [src]="node.data.image">
+        <img class="graphic" [src]="node.data.image" [alt]="node.data.alt">
       </div>
-      <ul class="choices">
+      <ul class="choices" *ngIf="node.choices">
         <li class="choice" *ngFor="let choice of node.choices">
           <button class="pure-button" (click)="changeNode(choice.id)">{{choice.text}}</button>
         </li>
       </ul>
-      <p class="retry" *ngIf="node.terminus">
+      <p class="retry" *ngIf="node.retry">
         <button class="pure-button" (click)="reload()">Retry</button>
       </p>
     </section>
