@@ -2,7 +2,7 @@ import { NgModule, Component, OnInit, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'oe-branching',
+  selector: 'edu-branching',
   template: `
     <section>
       <div>
