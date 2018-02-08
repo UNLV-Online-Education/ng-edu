@@ -7,9 +7,9 @@ import { CommonModule } from '@angular/common';
     <section>
       <div>
         <h4 *ngIf="node.data.title">{{node.data.title}}</h4>
+        <img *ngIf="node.data.image" class="graphic" [src]="node.data.image" [alt]="node.data.alt">
         <p *ngIf="node.data.text">{{node.data.text}}</p>
         <div *ngIf="node.data.html" [innerHtml]="node.data.html"></div>
-        <img *ngIf="node.data.image" class="graphic" [src]="node.data.image" [alt]="node.data.alt">
       </div>
       <ul *ngIf="node.choices" class="choices">
         <li class="choice" *ngFor="let choice of node.choices">
@@ -32,7 +32,6 @@ import { CommonModule } from '@angular/common';
       padding: 0;
     }
     ul.choices li.choice {
-      text-align: center;
       margin-bottom: .25rem;
     }
   `]
