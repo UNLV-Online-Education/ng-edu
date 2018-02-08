@@ -1,3 +1,4 @@
+export * from './components/branching/branching';
 export * from './components/flashcards/flashcards';
 export * from './components/interactive-text/interactive-text';
 export * from './components/layer-toggle/layer-toggle';

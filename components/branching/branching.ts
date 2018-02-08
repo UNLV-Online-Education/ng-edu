@@ -53,7 +53,7 @@ export class Branching implements OnInit {
   }
 
   changeNode(id: number) {
-    this.node = this.branchingData.find((value) => {
+    this.node = this.branchingData.find((value: any) => {
       return value.id == id;
     });
   }
