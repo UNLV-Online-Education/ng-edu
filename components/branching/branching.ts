@@ -6,17 +6,17 @@ import { CommonModule } from '@angular/common';
   template: `
     <section>
       <div>
-        <h4>{{node.data.title}}</h4>
-        <p>{{node.data.text}}</p>
-        <div [innerHtml]="node.data.html"></div>
-        <img class="graphic" [src]="node.data.image" [alt]="node.data.alt">
+        <h4 *ngIf="node.data.title">{{node.data.title}}</h4>
+        <p *ngIf="node.data.text">{{node.data.text}}</p>
+        <div *ngIf="node.data.html" [innerHtml]="node.data.html"></div>
+        <img *ngIf="node.data.image" class="graphic" [src]="node.data.image" [alt]="node.data.alt">
       </div>
-      <ul class="choices" *ngIf="node.choices">
+      <ul *ngIf="node.choices" class="choices">
         <li class="choice" *ngFor="let choice of node.choices">
           <button class="pure-button" (click)="changeNode(choice.id)">{{choice.text}}</button>
         </li>
       </ul>
-      <p class="retry" *ngIf="node.retry">
+      <p *ngIf="node.retry" class="retry">
         <button class="pure-button" (click)="reload()">Retry</button>
       </p>
     </section>
