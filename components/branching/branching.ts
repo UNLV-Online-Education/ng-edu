@@ -40,6 +40,8 @@ export class Branching implements OnInit {
 
   @Input() data: any;
 
+  @Input() startingNode: number;
+
   branchingData: any;
 
   node: any;
@@ -48,7 +50,7 @@ export class Branching implements OnInit {
 
   ngOnInit() {
     this.branchingData = this.data;
-    this.node = this.branchingData[0];
+    this.node = this.branchingData[this.startingNode || 0];
   }
 
   changeNode(id: number) {
@@ -58,10 +60,11 @@ export class Branching implements OnInit {
   }
 
   reload() {
-    location.reload();
+    this.node = this.branchingData[this.startingNode || 0];
   }
 
 }
+
 @NgModule({
   imports: [CommonModule],
   exports: [Branching],
