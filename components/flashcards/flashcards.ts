@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'edu-flashcards',
   template: `
-    <div class="cardset-wrapper clearfix">
+    <div class="cardset-wrapper">
       <!-- Card -->
       <div class="cardset" [ngClass]="{'flip': card.flipped, 'show': showCard(i)}" *ngFor="let card of data.cards; let i = index;">
         <!-- Front -->
@@ -34,11 +34,11 @@ import { CommonModule } from '@angular/common';
       <p>
         {{data.cardNumber + 1}} of {{data.cards.length}}
       </p>
-      <button value="previous card" aria-label="previous card" class="pure-button pure-button-primary button-oe" (click)="changeCard('prev')" [disabled]="firstCard()">
-        <span class="fa fa-step-backward"></span>
+      <button value="previous card" aria-label="previous card" class="pure-button pure-button-primary previous" (click)="changeCard('prev')" [disabled]="firstCard()">
+        &lsaquo;
       </button>
-      <button value="next card" aria-label="next card" class="pure-button pure-button-primary button-oe" (click)="changeCard('next')" [disabled]="lastCard()">
-        <span class="fa fa-step-forward"></span>
+      <button value="next card" aria-label="next card" class="pure-button pure-button-primary next" (click)="changeCard('next')" [disabled]="lastCard()">
+        &rsaquo;
       </button>
     </div>
   `,
@@ -54,6 +54,12 @@ import { CommonModule } from '@angular/common';
         position: relative;
         margin: 1.5em auto;
         max-width: 42rem;
+    }
+
+    div.cardset-wrapper:after {
+      content: "";
+      display: table;
+      clear: both;
     }
 
         div.flashcard-controls {
@@ -101,6 +107,7 @@ import { CommonModule } from '@angular/common';
                 background: #fff;
                 box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.26);
                 overflow-y: auto;
+                box-sizing: border-box;
             }
 
             div.cardset div.card.front {

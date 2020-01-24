@@ -1,7 +1,7 @@
 {
   "name": "build-ng-edu",
-  "version": "0.17.0",
-  "description": "A library of Angular 2 components for use in online education applications/interactives/digital learning objects.",
+  "version": "1.1.0",
+  "description": "A library of Angular components for use in online education applications/interactives/digital learning objects.",
   "repository": {
     "type": "git",
     "url": "https://github.com/UNLV-Online-Education/ng-edu"
@@ -20,7 +20,7 @@
     "online",
     "education",
     "learning",
-    "angular2"
+    "angular"
   ],
   "author": {
     "name": "John Murphy",
@@ -34,23 +34,23 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@angular/common": "^4.0.0",
-    "@angular/core": "^4.0.0",
-    "@angular/forms": "^4.0.0",
-    "@angular/platform-browser": "^4.0.0",
-    "@angular/router": "^4.0.0",
-    "rxjs": "^5.1.0",
-    "zone.js": "^0.8.4"
+    "@angular/common": "~8.2.14",
+    "@angular/core": "~8.2.14",
+    "@angular/forms": "~8.2.14",
+    "@angular/platform-browser": "~8.2.14",
+    "@angular/router": "~8.2.14",
+    "rxjs": "~6.4.0",
+    "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular/compiler": "^4.0.0",
-    "@angular/compiler-cli": "^4.0.0",
-    "cpx": "^1.5.0",
-    "renamer": "^0.6.1",
-    "rimraf": "^2.5.4",
-    "rollup": "^0.41.4",
-    "typescript": "~2.3.3",
-    "uglify-js": "^2.8.14"
+    "@angular/compiler": "~8.2.14",
+    "@angular/compiler-cli": "~8.2.14",
+    "cpx": "~1.5.0",
+    "renamer": "~1.1.4",
+    "rimraf": "~3.0.0",
+    "rollup": "~0.41.4",
+    "typescript": "~3.5.3",
+    "uglify-js": "~3.7.6"
   },
   "typings": "./index.d.ts"
 }
