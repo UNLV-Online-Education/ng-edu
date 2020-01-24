@@ -2,7 +2,7 @@
 
 
 # ng-edu
-ng-edu is a library of Angular 2 components for use in online education applications/interactives/digital learning objects.
+ng-edu is a library of Angular components for use in online education applications/interactives/digital learning objects.
 
 Component styles are minimal and easily customizable with CSS.
 
